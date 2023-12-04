@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { NavbarProps } from '@/app/lib/definitions';
 
-// import Modal from '../modal/Modal';
+import Modal from '../modal/Modal';
 
 export default function Navbar({ fullName }: NavbarProps) {
   const [theme, setTheme] = useState(() => {
@@ -26,6 +26,8 @@ export default function Navbar({ fullName }: NavbarProps) {
 
   return (
     <nav className="flex items-center justify-between py-3">
+
+      <Modal></Modal>
 
       <button type="button" onClick={changeTheme} className="inline-flex items-center rounded-full p-1.5 hover:bg-black/10 dark:hover:bg-slate-100/10">
         {theme === "dark" ? (
