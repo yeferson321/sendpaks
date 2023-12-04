@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ProfileProps } from '@/app/lib/definitions';
 import Navbar from '../navbar/Navbar';
-import img from "@/public/photo-1499336315816-097655dcfbda.jpg"
 
 export default function Profile({ userData }: ProfileProps) {
     return (

@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import Navbar from '../ui/navbar/Navbar'
+import Cards from '../ui/cards/Cards';
 import Profile from '../ui/profile/Profile'
 import Sidebar from '../ui/sidebar/Sidebar';
 
@@ -31,11 +30,15 @@ export default async function Home({ params }: any) {
 
             <div className="sm:flex sm:space-x-12">
 
-                <Sidebar/>
+                <Sidebar />
 
                 <Profile userData={response} />
 
+               
+
             </div>
+
+            <Cards />
 
         </div>
 
