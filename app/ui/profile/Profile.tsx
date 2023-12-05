@@ -85,115 +85,51 @@ export default function Profile({ userData }: ProfileProps) {
 
             <main className="">
 
-                <div className="mt-4 sm:border sm:rounded-lg dark:border-gray-600">
-                    <ul className="flex justify-evenly text-sm font-medium text-center" role="tablist">
-                        <li>
-                            <button className="inline-block p-2 hover:text-gray-800 border-b-2 hover:border-amber-600" type="button" aria-selected="false">Todo</button>
-                        </li>
-                        <li>
-                            <button className="inline-block p-2 hover:text-gray-800 border-b-2 hover:border-amber-600" type="button" aria-selected="false">Fotos</button>
-                        </li>
-                        <li>
-                            <button className="inline-block p-2 hover:text-gray-800 border-b-2 hover:border-amber-600" type="button" aria-selected="false">Gifs</button>
-                        </li>
-                        <li>
-                            <button className="inline-block p-2 hover:text-gray-800 border-b-2 hover:border-amber-600" type="button" aria-selected="false">Videos</button>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="mt-4 p-4 sm:border sm:rounded-lg dark:border-gray-600">
+                <div className="mt-4 p-3 space-y-3 border rounded-2xl">
 
                     <div className="flex items-center justify-between">
-                        <div className="gap-3.5	flex items-center ">
-                            <img src="https://images.unsplash.com/photo-1617077644557-64be144aa306?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" className="object-cover bg-yellow-500 rounded-full w-10 h-10" />
-                            <div className="flex flex-col">
-                                <b className="mb-2 capitalize">sofia müller</b>
-                                <time dateTime="06-08-21" className="text-gray-400 text-xs">06 August at 09.15 PM
+                        <div className="flex items-center space-x-3">
+                            <Image src="https://images.unsplash.com/photo-1617077644557-64be144aa306?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Profile Picture" width={40} height={40} className="rounded-full" />
+                            <div className="flex flex-col space-y-1">
+                                <b className="capitalize">Sofia Tabarez</b>
+                                <time dateTime="06-08-21" className="text-gray-400 text-xs">06 Agosto, 09.15 PM
                                 </time>
                             </div>
                         </div>
-                        <div className="bg-gray-100	rounded-full h-3.5 flex	items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="34px" fill="#92929D">
-                                <path d="M0 0h24v24H0V0z" fill="none" />
-                                <path
-                                    d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                        <button type="button" className="rounded-full p-1.5 hover:bg-black/10 dark:hover:bg-slate-100/10">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 fill-gray-600 dark:fill-slate-100">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p className="text-sm text-gray-600 dark:text-slate-300">Hola chicos, espero que les guste esta foto :)</p>
+
+                    <Image src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1795&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Publication Picture" width={500} height={400} className="rounded-2xl" />
+
+                    <div className="flex items-center justify-between px-3">
+
+                        <div className="flex items-center space-x-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
                             </svg>
                         </div>
+
+                        <button type="button" className="text-slate-100 bg-[#1da1f2] hover:bg-[#1da1f2]/90 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center">
+                            Hablar
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 ml-1.5 stroke-slate-100">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                            </svg>
+                        </button>
+
                     </div>
-
-                    <div className="whitespace-pre-wrap mt-7">Hello guys ?</div>
-
-                    <div className="flex justify-center  flex-wrap">
-                        <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1795&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="bg-red-500 rounded-2xl w-1/3 object-cover h-96 flex-auto" alt="photo" />
-                    </div>
-
-                    <div className="flex items-center justify-between mx-4 mt-3 mb-2">
-                        <div className="flex gap-5">
-                            <svg fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>
-                            <svg fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg>
-                            <svg fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg>
-                        </div>
-                        <div className="flex">
-                            <svg fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg>
-                        </div>
-                    </div>
-                    <div className="font-semibold text-sm mx-4 mt-2 mb-4">92,372 likes</div>
-
 
                 </div>
-                {/* <div id="default-tab-content">
-                    <div className=" p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong className="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                    </div>
-                    <div className=" p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong className="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                    </div>
-                    <div className=" p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong className="font-medium text-gray-800 dark:text-white">Settings tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                    </div>
-                    <div className=" p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong className="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                    </div>
-                </div>
- */}
-
 
             </main>
-
-            <main className="flex items-center justify-center">
-                <div className="border max-w-screen-md  mt-6 rounded-2xl p-4">
-                    <div className="flex items-center justify-between">
-                        <div className="gap-3.5	flex items-center ">
-                            <img src="https://images.unsplash.com/photo-1617077644557-64be144aa306?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" className="object-cover bg-yellow-500 rounded-full w-10 h-10" />
-                            <div className="flex flex-col">
-                                <b className="mb-2 capitalize">sofia müller</b>
-                                <time dateTime="06-08-21" className="text-gray-400 text-xs">06 August at 09.15 PM
-                                </time>
-                            </div>
-                        </div>
-                        <div className="bg-gray-100	rounded-full h-3.5 flex	items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="34px" fill="#92929D">
-                                <path d="M0 0h24v24H0V0z" fill="none" />
-                                <path
-                                    d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div className="whitespace-pre-wrap mt-7">Hello guys ?</div>
-
-                    <div className="mt-5 flex gap-2	justify-center border-b pb-4 flex-wrap">
-                        <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1795&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="bg-red-500 rounded-2xl w-1/3 object-cover h-96 flex-auto" alt="photo" />
-                    </div>
-
-                    <div>
-
-                    </div>
-
-                </div>
-
-            </main >
 
         </header>
     )
