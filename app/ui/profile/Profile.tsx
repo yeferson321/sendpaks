@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ProfileProps, SocialIcons } from '@/app/lib/definitions';
-import { IconTwitter, IconFacebook, IconInstagram, IconYoutube, IconTiktok } from '@/app/lib/Icons/SocialIcons';
+import { IconTwitter, IconFacebook, IconInstagram, IconYoutube, IconTiktok } from '@/app/lib/icons/SocialIcons';
 import ModalImage from '../modals/ModalImage';
 
 const platformIcons: SocialIcons = {

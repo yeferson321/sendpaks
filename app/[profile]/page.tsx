@@ -4,7 +4,7 @@ import Navbar from '../ui/navbar/Navbar';
 import Profile from '../ui/profile/Profile'
 import Sidebar from '../ui/sidebar/Sidebar';
 
-export default async function Home() {
+export default async function Home({}) {
 
     const fetchUser = async () => {
 

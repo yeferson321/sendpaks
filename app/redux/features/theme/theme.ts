@@ -9,14 +9,12 @@ export const theme = createSlice({
   initialState,
   reducers: {
     changeTheme: (state) => {
-      const isDarkTheme = document
-        .querySelector("html")
-        ?.classList.toggle("dark");
+      const isDarkTheme = document.querySelector("html")?.classList.toggle("dark");
 
       if (isDarkTheme !== undefined) {
         state.theme = isDarkTheme;
         localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
-      }
+      };
     },
   },
 });

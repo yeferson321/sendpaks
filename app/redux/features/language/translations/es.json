@@ -1,0 +1,16 @@
+{
+
+        "profile": {
+            "online": "Disponible ahora",
+            "range": "Rango",
+            "likes": "Me gusta",
+            "posts": "posts"
+        },
+        "sidebar": {
+            "light_mode": "Modo luz",
+            "dark_mode": "Modo oscuro",
+            "about": "Acerca de",
+            "login": "Iniciar sesion"
+        }
+  
+}

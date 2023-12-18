@@ -1,0 +1,17 @@
+{
+ 
+        "profile": {
+            "online": "Available now",
+            "range": "Range",
+            "likes": "Likes",
+            "posts": "Posts"
+        },
+        "sidebar": {
+            "light_mode": "Light mode",
+            "dark_mode": "Dark mode",
+            "about": "About",
+            "login": "Login"
+        }
+  
+  
+}

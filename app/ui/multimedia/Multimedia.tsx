@@ -47,7 +47,6 @@ export default function Multimedia({ multimedia }: MultimediaProps) {
         }
     }, []);
 
-
     const videoRef = useRef<HTMLVideoElement>(null);
 
     const playPause = () => {

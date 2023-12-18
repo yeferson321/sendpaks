@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import theme from './features/theme';
-import showModal from './features/modalAlert'
+import theme from './features/theme/theme';
+import language from './features/language/language';
 
 export const store = configureStore({
     reducer: {
         theme,
-        showModal
+        language
     },
 });
 

@@ -8,6 +8,10 @@ const nextConfig = {
             { protocol: 'https', hostname: "blur.onlypaks.com" },
             { protocol: 'https', hostname: "video.onlypaks.com" },
         ],
+    },
+    i18n: {
+        defaultLocale: "es",
+        locales: ["es", "en"]
     }
 }
 
