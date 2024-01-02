@@ -9,10 +9,8 @@ const nextConfig = {
             { protocol: 'https', hostname: "video.onlypaks.com" },
         ],
     },
-    i18n: {
-        defaultLocale: "es",
-        locales: ["es", "en"]
-    }
 }
 
-module.exports = nextConfig
+const withNextIntl = require('next-intl/plugin')();
+
+module.exports = withNextIntl(nextConfig)

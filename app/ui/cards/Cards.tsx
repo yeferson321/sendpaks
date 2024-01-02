@@ -2,9 +2,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Multimedia from '../multimedia/Multimedia';
-import { CardsProps } from '@/app/lib/definitions';
+import { CardsProps } from '@/app/lib/definitions/definitions';
 import { useState } from 'react';
-import { copyUrlShare } from '@/app/lib/copyUrlShare';
+import { copyUrlShare } from '@/app/lib/utils/copyUrlShare';
 import ModalOpcion from '../modals/ModalOpcion';
 
 export default function Cards({ userPosts }: CardsProps) {

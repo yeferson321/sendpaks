@@ -38,4 +38,4 @@ export type SocialIcons = {
     Instagram: JSX.Element;
     Youtube: JSX.Element;
     Tiktok: JSX.Element;
-}
+};

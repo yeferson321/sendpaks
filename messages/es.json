@@ -1,0 +1,11 @@
+{
+  "Sidebar": {
+    "support": "Ayuda y soporte",
+    "login": "Iniciar sesion",
+    "signIn": "Registrarse",
+    "theme": "Modo claro",
+    "languages": "Español",
+    "darkMode": "Modo oscuro",
+    "lightMode": "Modo luz"
+  }
+}

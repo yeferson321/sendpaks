@@ -2,16 +2,17 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
 import { changeTheme } from '@/app/redux/features/theme/theme';
-import { NavbarProps } from '@/app/lib/definitions';
-import { copyUrlShare } from '@/app/lib/copyUrlShare';
+import { NavbarProps } from '@/app/lib/definitions/definitions';
+import { copyUrlShare } from '@/app/lib/utils/copyUrlShare';
 import ModalAlert from '../modals/ModalAlert';
 
 
 
 export default function Navbar({ fullName }: NavbarProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const theme = useAppSelector(state => state.theme.theme);
-  const dispatch = useAppDispatch();
+  // const theme = useAppSelector(state => state.theme.theme);
+  //const dispatch = useAppDispatch();
+
 
 
   return (
@@ -19,9 +20,7 @@ export default function Navbar({ fullName }: NavbarProps) {
 
 
  
-
-
-      <button type="button" onClick={() => dispatch(changeTheme())} className="rounded-full p-1.5 hover:bg-black/5 dark:hover:bg-white/5 text-gray-600 dark:text-white hover:text-blue-500">
+     {/*  <button type="button" onClick={() => dispatch(changeTheme())} className="rounded-full p-1.5 hover:bg-black/5 dark:hover:bg-white/5 text-gray-600 dark:text-white hover:text-blue-500">
         {theme ? (
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
@@ -31,7 +30,7 @@ export default function Navbar({ fullName }: NavbarProps) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
           </svg>
         )}
-      </button>
+      </button> */}
 
       <div className="inline-flex items-center">
         <h1 className="text-lg font-medium whitespace-nowrap text-gray-800 dark:text-white">{fullName}</h1>

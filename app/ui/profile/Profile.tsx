@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { ProfileProps, SocialIcons } from '@/app/lib/definitions';
+import { ProfileProps, SocialIcons } from '@/app/lib/definitions/definitions';
 import { IconTwitter, IconFacebook, IconInstagram, IconYoutube, IconTiktok } from '@/app/lib/icons/SocialIcons';
 import ModalImage from '../modals/ModalImage';
 
@@ -24,7 +24,7 @@ export default function Profile({ userData }: ProfileProps) {
     };
 
     return (
-        <section className="sm:border sm:rounded-xl dark:border-gray-600">
+        <section className=" dark:border-gray-600">
 
             <div className="w-full overflow-hidden relative h-[180px] rounded-xl sm:rounded-t-lg">
                 <Image src={userData.bannerPictureUrl} onClick={() => openModal(userData.bannerPictureUrl)} alt="Banner Profile" width={1440} height={990} priority={true} className="absolute block left-0 w-full h-full top-0 object-cover" />
@@ -36,7 +36,7 @@ export default function Profile({ userData }: ProfileProps) {
 
             <div className="flex px-4 sm:px-5">
 
-                <div className="relative -mt-12 z-40 rounded-full border-4 border-white dark:border-gray-950 flex-none">
+                <div className="relative -mt-12  rounded-full border-4 border-white dark:border-gray-950 flex-none">
                     <Image src={userData.profilePictureUrl} onClick={() => openModal(userData.profilePictureUrl)} alt="Profile Picture" width={96} height={96} priority={true} className="rounded-full" />
                     <span className="bottom-2.5 right-1 absolute w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-950 rounded-full"></span>
                 </div>
@@ -72,9 +72,9 @@ export default function Profile({ userData }: ProfileProps) {
                         <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
                     </svg>
                     <span className="text-sm text-gray-600 dark:text-slate-300">{userData.country}</span>
-                </div>
+                </div>    const [isModalOpen, setIsModalOpen] = useState(false);
 
-                <div className="mt-5">
+               {/*  <div className="mt-5">
                     <ul className="scrollbar flex whitespace-nowrap space-x-2 overflow-x-auto touch-pan-x">
                         {userData.socialLinks.map((link, index) => (
                             <li key={index}>
@@ -87,7 +87,7 @@ export default function Profile({ userData }: ProfileProps) {
                             </li>
                         ))}
                     </ul>
-                </div>
+                </div> */}
 
                 <div className="flex justify-evenly mt-4 py-1.5 border-y sm:border-y-0 sm:border-t dark:border-gray-600 text-gray-800 dark:text-slate-300 ">
                     <div className="text-center">

@@ -2,17 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   @apply transition-colors duration-100;
 }
 
-.scrollbar {
+.scroll-hidden {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-.scrollbar::-webkit-scrollbar {
+.scroll-hidden::-webkit-scrollbar {
   display: none;
+}
+
+@media (min-width: 640px) {
+  .grid-columns {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
 }
