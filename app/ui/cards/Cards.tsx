@@ -13,7 +13,7 @@ export default function Cards({ userPosts }: CardsProps) {
     return (
         <>
             {userPosts.map((post, index) => (
-                <div key={index} className="sm:px-5 py-[24px] sm:py-4 sm:mt-6 border-b sm:border sm:rounded-xl dark:border-gray-600">
+                <div key={index} className="px-4 py-[24px] sm:py-4 sm:mt-6 border-b sm:border sm:rounded-xl dark:border-gray-600">
 
                     <div className="flex items-center justify-between">
                         <div className="flex items-center flex-none space-x-3">

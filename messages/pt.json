@@ -6,6 +6,7 @@
     "theme": "Modo claro",
     "languages": "Português",
     "darkMode": "Modo escuro",
-    "lightMode": "Modo luz"
+    "lightMode": "Modo luz",
+    "alert": "Tu privacidad es nuestra prioridad. Navega de forma segura y anónima, no almacenamos ni compartimos datos personales durante tu visita."
   }
 }

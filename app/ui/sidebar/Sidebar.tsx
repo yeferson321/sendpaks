@@ -1,108 +1,63 @@
 import { useTranslations } from 'next-intl';
+import { IconOnly, IconQuestion, IconMoon, IconSun, IconUser, IconExit } from '@/app/lib/icons/SocialIcons';
 import SwitchTheme from '../switchTheme/SwitchTheme';
 import SwitchLanguage from '../switchLanguage/SwitchLanguage';
 
 export default function Sidebar() {
     const t = useTranslations('Sidebar');
-    const svgStyles = {
-        // Define tus estilos aquí como un objeto
-        fill: 'none',
-        stroke: 'black',
-        // Otros estilos...
-    };
+
     return (
         <>
-            <aside id="logo-sidebar" className="dark:bg-background-base rounded-lg sm:block w-48 md:w-56 lg:w-72" aria-label="Sidebar">
-                <div className="h-full px-3 py-4 overflow-y-auto bg-transparent ">
+            <aside className="fixed xr:relative w-full bottom-0 z-10" aria-label="Sidebar">
 
-                    <a href="https://flowbite.com/" className="mb-5">
+                <div className="p-2 xr:p-3 xr:rounded-lg border-t xr:border-none dark:border-gray-600 bg-white dark:bg-background-base">
 
-                        <svg width="101" height="27" viewBox="0 0 101 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.0037 13.7273C15.0037 15.3134 14.7031 16.6629 14.1017 17.7756C13.5051 18.8883 12.6908 19.7382 11.6586 20.3253C10.6311 20.9077 9.47579 21.1989 8.19265 21.1989C6.90004 21.1989 5.74 20.9053 4.71254 20.3182C3.68507 19.7311 2.87305 18.8812 2.27646 17.7685C1.67987 16.6558 1.38157 15.3087 1.38157 13.7273C1.38157 12.1411 1.67987 10.7917 2.27646 9.67898C2.87305 8.56629 3.68507 7.71875 4.71254 7.13636C5.74 6.54924 6.90004 6.25568 8.19265 6.25568C9.47579 6.25568 10.6311 6.54924 11.6586 7.13636C12.6908 7.71875 13.5051 8.56629 14.1017 9.67898C14.7031 10.7917 15.0037 12.1411 15.0037 13.7273ZM11.8858 13.7273C11.8858 12.6998 11.7319 11.8333 11.4242 11.1278C11.1212 10.4223 10.6926 9.88731 10.1387 9.52273C9.58469 9.15814 8.93602 8.97585 8.19265 8.97585C7.44928 8.97585 6.8006 9.15814 6.24663 9.52273C5.69265 9.88731 5.26178 10.4223 4.95401 11.1278C4.65098 11.8333 4.49947 12.6998 4.49947 13.7273C4.49947 14.7547 4.65098 15.6212 4.95401 16.3267C5.26178 17.0322 5.69265 17.5672 6.24663 17.9318C6.8006 18.2964 7.44928 18.4787 8.19265 18.4787C8.93602 18.4787 9.58469 18.2964 10.1387 17.9318C10.6926 17.5672 11.1212 17.0322 11.4242 16.3267C11.7319 15.6212 11.8858 14.7547 11.8858 13.7273ZM20.2505 14.6932V21H17.225V10.0909H20.1085V12.0156H20.2363C20.4778 11.3812 20.8826 10.8793 21.4508 10.5099C22.019 10.1359 22.7079 9.94886 23.5176 9.94886C24.2752 9.94886 24.9357 10.1146 25.4991 10.446C26.0626 10.7775 26.5005 11.2509 26.813 11.8665C27.1255 12.4773 27.2818 13.2064 27.2818 14.054V21H24.2562V14.5938C24.2609 13.9261 24.0905 13.4053 23.7449 13.0312C23.3992 12.6525 22.9234 12.4631 22.3173 12.4631C21.9101 12.4631 21.5502 12.5507 21.2377 12.7259C20.93 12.901 20.6885 13.1567 20.5133 13.4929C20.3429 13.8243 20.2553 14.2244 20.2505 14.6932ZM32.6919 6.45455V21H29.6664V6.45455H32.6919ZM36.9835 25.0909C36.6 25.0909 36.2401 25.0601 35.9039 24.9986C35.5725 24.9418 35.2979 24.8684 35.0801 24.7784L35.7619 22.5199C36.117 22.6288 36.4366 22.688 36.7207 22.6974C37.0095 22.7069 37.2581 22.6406 37.4664 22.4986C37.6795 22.3565 37.8523 22.1151 37.9849 21.7741L38.1625 21.3125L34.2491 10.0909H37.4309L39.6895 18.1023H39.8031L42.0829 10.0909H45.286L41.046 22.179C40.8424 22.7661 40.5654 23.2775 40.215 23.7131C39.8694 24.1534 39.4314 24.492 38.9011 24.7287C38.3708 24.9702 37.7316 25.0909 36.9835 25.0909Z" fill="white" />
-                            <mask id="mask0_217_48" maskUnits="userSpaceOnUse" x="49" y="0" width="52" height="27">
-                                <path d="M98 0H52C50.3431 0 49 1.34315 49 3V24C49 25.6569 50.3431 27 52 27H98C99.6569 27 101 25.6569 101 24V3C101 1.34315 99.6569 0 98 0Z" fill="white" />
-                                <path d="M52.6998 21V6.45455H58.4384C59.5416 6.45455 60.4815 6.66525 61.258 7.08665C62.0345 7.50331 62.6264 8.08333 63.0336 8.8267C63.4455 9.56534 63.6515 10.4176 63.6515 11.3835C63.6515 12.3494 63.4431 13.2017 63.0265 13.9403C62.6098 14.679 62.0061 15.2543 61.2154 15.6662C60.4294 16.0781 59.4777 16.2841 58.3603 16.2841H54.7026V13.8196H57.8631C58.455 13.8196 58.9426 13.7178 59.3262 13.5142C59.7144 13.3059 60.0033 13.0194 60.1926 12.6548C60.3868 12.2855 60.4838 11.8617 60.4838 11.3835C60.4838 10.9006 60.3868 10.4792 60.1926 10.1193C60.0033 9.75473 59.7144 9.47301 59.3262 9.27415C58.9379 9.07055 58.4455 8.96875 57.8489 8.96875H55.775V21H52.6998ZM68.41 21.206C67.714 21.206 67.0937 21.0852 66.5492 20.8438C66.0047 20.5975 65.5738 20.2353 65.2566 19.7571C64.9441 19.2741 64.7878 18.6728 64.7878 17.9531C64.7878 17.3471 64.8991 16.8381 65.1216 16.4261C65.3442 16.0142 65.6472 15.6828 66.0307 15.4318C66.4142 15.1809 66.8498 14.9915 67.3375 14.8636C67.83 14.7358 68.3461 14.6458 68.8858 14.5938C69.5203 14.5275 70.0317 14.4659 70.4199 14.4091C70.8082 14.3475 71.0899 14.2576 71.2651 14.1392C71.4403 14.0208 71.5279 13.8456 71.5279 13.6136V13.571C71.5279 13.1212 71.3858 12.7732 71.1017 12.527C70.8224 12.2808 70.4247 12.1577 69.9086 12.1577C69.3641 12.1577 68.9308 12.2784 68.6088 12.5199C68.2869 12.7566 68.0738 13.0549 67.9696 13.4148L65.1713 13.1875C65.3134 12.5246 65.5927 11.9517 66.0094 11.4688C66.4261 10.9811 66.9635 10.607 67.6216 10.3466C68.2845 10.0814 69.0516 9.94886 69.9228 9.94886C70.5288 9.94886 71.1088 10.0199 71.6628 10.1619C72.2215 10.304 72.7163 10.5241 73.1472 10.8224C73.5828 11.1207 73.9261 11.5043 74.177 11.973C74.428 12.437 74.5534 12.9934 74.5534 13.642V21H71.6841V19.4872H71.5989C71.4237 19.8281 71.1893 20.1288 70.8958 20.3892C70.6022 20.6449 70.2495 20.8461 69.8375 20.9929C69.4256 21.1349 68.9498 21.206 68.41 21.206ZM69.2765 19.1179C69.7215 19.1179 70.1145 19.0303 70.4554 18.8551C70.7963 18.6752 71.0639 18.4337 71.258 18.1307C71.4521 17.8277 71.5492 17.4844 71.5492 17.1009V15.9432C71.4545 16.0047 71.3243 16.0616 71.1586 16.1136C70.9976 16.161 70.8153 16.206 70.6117 16.2486C70.4081 16.2865 70.2045 16.322 70.0009 16.3551C69.7973 16.3835 69.6126 16.4096 69.4469 16.4332C69.0918 16.4853 68.7817 16.5682 68.5165 16.6818C68.2514 16.7955 68.0454 16.9493 67.8986 17.1435C67.7518 17.3329 67.6784 17.5696 67.6784 17.8537C67.6784 18.2656 67.8276 18.5805 68.1259 18.7983C68.4289 19.0114 68.8124 19.1179 69.2765 19.1179ZM79.6422 17.8608L79.6493 14.2315H80.0897L83.584 10.0909H87.057L82.3624 15.5739H81.6451L79.6422 17.8608ZM76.9007 21V6.45455H79.9263V21H76.9007ZM83.7189 21L80.5087 16.2486L82.5257 14.1108L87.263 21H83.7189ZM97.6181 13.2017L94.8482 13.3722C94.8008 13.1354 94.699 12.9223 94.5428 12.733C94.3865 12.5388 94.1806 12.3849 93.9249 12.2713C93.6739 12.1529 93.3733 12.0938 93.0229 12.0938C92.5542 12.0938 92.1588 12.1932 91.8368 12.392C91.5149 12.5862 91.3539 12.8466 91.3539 13.1733C91.3539 13.4337 91.458 13.6539 91.6664 13.8338C91.8747 14.0137 92.2322 14.1581 92.7388 14.267L94.7132 14.6648C95.7739 14.8826 96.5646 15.233 97.0854 15.7159C97.6062 16.1989 97.8667 16.8333 97.8667 17.6193C97.8667 18.3343 97.656 18.9616 97.2346 19.5014C96.8179 20.0412 96.245 20.4626 95.5158 20.7656C94.7914 21.0639 93.9557 21.2131 93.0087 21.2131C91.5646 21.2131 90.414 20.9124 89.557 20.3111C88.7047 19.705 88.2052 18.8812 88.0584 17.8395L91.0343 17.6832C91.1242 18.1236 91.342 18.4598 91.6877 18.6918C92.0333 18.919 92.476 19.0327 93.0158 19.0327C93.5461 19.0327 93.9722 18.9309 94.2942 18.7273C94.6209 18.5189 94.7866 18.2514 94.7914 17.9247C94.7866 17.6501 94.6706 17.4252 94.4434 17.25C94.2161 17.0701 93.8657 16.9328 93.3922 16.8381L91.503 16.4616C90.4377 16.2486 89.6446 15.8793 89.1238 15.3537C88.6077 14.8281 88.3496 14.1581 88.3496 13.3438C88.3496 12.643 88.539 12.0393 88.9178 11.5327C89.3013 11.026 89.8387 10.6354 90.53 10.3608C91.226 10.0862 92.0404 9.94886 92.9732 9.94886C94.351 9.94886 95.4353 10.2401 96.226 10.8224C97.0215 11.4048 97.4855 12.1979 97.6181 13.2017Z" fill="black" />
-                            </mask>
-                            <g mask="url(#mask0_217_48)">
-                                <path d="M100 0H50C48.3431 0 47 1.34315 47 3V24C47 25.6569 48.3431 27 50 27H100C101.657 27 103 25.6569 103 24V3C103 1.34315 101.657 0 100 0Z" fill="white" />
-                            </g>
-                        </svg>
-
+                    <a href="https://onlypaks.com/" className="hidden md:flex items-center ps-2 mb-5">
+                        <IconOnly />
                     </a>
 
-                    <ul className="space-y-2 text-lg font-medium">
-                        <li>
-                            <a href="#" className="flex items-center p-1.5 rounded-full text-gray-500 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-500 hover:bg-blue-100 dark:hover:bg-transparent group">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="flex-shrink-0 w-7 h-7 stroke-gray-500 dark:stroke-gray-300 group-hover:stroke-blue-500">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">{t('support')}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <SwitchTheme darkMode={t('darkMode')} lightMode={t('lightMode')} 
-                            button={
-                            <button className="flex items-center p-1.5 rounded-full text-gray-500 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-500 hover:bg-blue-100 dark:hover:bg-transparent group">f</button>} 
-                            />
-                        </li>
-                        <li>
-                            <a href="#" className="flex items-center p-2 text-neutral-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <svg className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">{t('login')}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="flex items-center p-1.5 text-neutral-500 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">{t('signIn')}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <div className="my-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900" role="alert">
-                                <p className="text-sm text-blue-800 dark:text-blue-400">
-                                    Tu privacidad es nuestra prioridad. Navega de forma segura y anónima, no almacenamos ni compartimos datos personales durante tu visita.
-                                </p>
-                            </div>
-                        </li>
-                        <li>
+                    <div className="grid justify-items-center md:justify-items-stretch grid-flow-col xr:grid-flow-row auto-cols-fr xr:auto-cols-auto xr:gap-4 text-lg font-medium">
 
-                            <SwitchLanguage />
+                        <button type="button" className="flex items-center justify-center md:justify-normal p-1 rounded-full text-gray-500 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-500/5 group">
+                            <IconQuestion />
+                            <span className="hidden md:flex flex-1 ms-3 me-2 whitespace-nowrap">{t('support')}</span>
+                        </button>
 
-                        </li>
-                    </ul>
+                        <button type="button" className="flex items-center justify-center md:justify-normal p-1 rounded-full text-gray-500 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-500/5 group">
+                            <IconUser />
+                            <span className="hidden md:flex flex-1 ms-3 whitespace-nowrap">{t('login')}</span>
+                        </button>
+
+                        <button type="button" className="flex items-center justify-center md:justify-normal p-1 rounded-full text-gray-500 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-500/5 group">
+                            <IconExit />
+                            <span className="hidden md:flex flex-1 ms-3 whitespace-nowrap">{t('signIn')}</span>
+                        </button>
+
+                        <SwitchTheme
+                            buttonClass="flex items-center justify-center md:justify-normal p-1 rounded-full text-gray-500 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-500/5 group"
+                            spanClass="hidden md:flex flex-1 ms-3 whitespace-nowrap"
+                            IconMoon={<IconMoon />}
+                            IconSun={<IconSun />}>
+                        </SwitchTheme>
+
+                        <div className="hidden md:flex p-4 my-2 rounded-lg bg-blue-50 dark:bg-blue-900" role="alert">
+                            <p className="text-sm text-blue-800 dark:text-blue-400">
+                                {t('alert')}
+                            </p>
+                        </div>
+
+                        <div className="flex items-center justify-center md:justify-normal">
+                            <SwitchLanguage
+                                buttonClass="flex items-center justify-center md:justify-normal w-10 md:w-full h-10 p-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 focus:ring-0 focus:outline-none"
+                                spanClass="hidden md:block flex-1 mx-3 text-base font-medium whitespace-nowrap" >
+                            </SwitchLanguage>
+                        </div>
+
+                    </div>
+
                 </div>
-            </aside >
 
-            {/*     <aside classNameName="hidden sm:block h-full" aria-label="Sidebar">
-                <ul classNameName="space-y-2 font-medium">
-                    <li>
-                        <Link href="#" classNameName="flex items-center w-full py-1 px-1.5 text-gray-600 dark:text-slate-300 rounded-full hover:bg-blue-500/20 dark:hover:bg-slate-100/10 group">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" classNameName="w-8 h-8 stroke-gray-600 dark:stroke-slate-300">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-                            </svg>
-                            <span classNameName="flex-1 ms-2 whitespace-nowrap">{t('support')}</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#" classNameName="flex items-center w-full py-1 px-1.5 text-gray-600 dark:text-slate-300 rounded-full hover:bg-black/10 dark:hover:bg-slate-100/10 group">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" classNameName="w-8 h-8 stroke-gray-600 dark:stroke-slate-300">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            <span classNameName="flex-1 ms-2 whitespace-nowrap">{t('login')}</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <SwitchTheme translations={[t('darkMode'), t('lightMode')]} />
-                    </li>
-                    <li>
-                        <SwitchLanguage />
-                    </li>
-                </ul>
-            </aside> */}
+            </aside >
         </>
     )
 };

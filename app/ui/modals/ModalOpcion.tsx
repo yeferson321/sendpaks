@@ -18,7 +18,7 @@ export default function ModalImage() {
     ]
 
     return (
-        <div aria-hidden="true" className="hidden sm:fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-75 z-50">
+        <div aria-hidden="true" className="hidden sm:fixed top-0 left-0 w-full h-full  justify-center items-center bg-gray-800 bg-opacity-75 z-50">
 
             <div className="relative p-4 w-full max-w-md max-h-full">
 

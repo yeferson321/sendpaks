@@ -1,10 +1,8 @@
 import type { Config } from 'tailwindcss'
-const {nextui} = require("@nextui-org/react");
 
 const config: Config = {
   content: [
     // ...
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -13,7 +11,9 @@ const config: Config = {
     extend: {
        // The `screens` property in the Tailwind CSS configuration file is used to define custom breakpoints for responsive design. 
        screens: {
-        'small': '300px', //@media (min-width: 340px) { ... }
+        'small': '300px', //@media (min-width: 300px) { ... }
+        'xr': '550px', //@media (min-width: 550px) { ... }
+        'ma': {'max': '550px'}, //@media (max-width: 550px) { ... }
       },
       colors: {
         'background-body': '#0a0a0a',
@@ -23,6 +23,5 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
 }
 export default config

@@ -16,9 +16,16 @@
   display: none;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 550px) {
   .grid-columns {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-columns {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
   }
 }

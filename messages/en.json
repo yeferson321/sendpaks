@@ -6,6 +6,7 @@
     "theme": "Light mode",
     "languages": "English",
     "darkMode": "Dark mode",
-    "lightMode": "Light mode"
+    "lightMode": "Light mode",
+    "alert": "Tu privacidad es nuestra prioridad. Navega de forma segura y anónima, no almacenamos ni compartimos datos personales durante tu visita."
   }
 }
