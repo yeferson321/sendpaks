@@ -1,3 +1,4 @@
+export const runtime = 'edge' // 'nodejs' (default) | 'edge'
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
@@ -25,7 +26,7 @@ export default function RootLayout({ children, params: { locale } }: { children:
   if (!locales.includes(locale)) {
     return NotFound();
   }
-  
+
   return (
     <html lang={locale}>
       <body className={`bg-white dark:bg-body ${inter.className}`}>
