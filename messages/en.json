@@ -1,12 +1,25 @@
 {
+  "Metadata": {
+    "keywords": "exclusive content, onlypaks, onlypacks, creators, premium, subscription, tokens, unique pleasure, explore content",
+    "description": "Explore the best exclusive content on Onlypaks.com. Discover standout posts from unique creators and more. Send tokens to access specific posts or subscribe to enjoy all the high-quality exclusive content. Explore from any device and immerse yourself in a world of pleasure and entertainment."
+  },
+  "NotFoundPage": {
+    "code": "404",
+    "pageTitle": "Page not found",
+    "pageDescription": "Sorry, we couldn’t find the page you’re looking for.",
+    "goHome": "Go back home",
+    "contactSupport": "Contact support"
+  },
   "Sidebar": {
     "support": "Help and support",
     "login": "Log in",
-    "signIn": "Sign in",
-    "theme": "Light mode",
-    "languages": "English",
+    "signIn": "Sign up",
     "darkMode": "Dark mode",
     "lightMode": "Light mode",
-    "alert": "Tu privacidad es nuestra prioridad. Navega de forma segura y anónima, no almacenamos ni compartimos datos personales durante tu visita."
+    "titleAlert": "Security",
+    "textAlert": "Your privacy is our priority. Browse safely and anonymously, we do not store or share personal data during your visit."
+  },
+  "LanguageModal": {
+    "chooseLanguage": "Choose a language"
   }
 }

@@ -10,6 +10,7 @@ export async function generateMetadata({ params }: { params: { profile: string }
     return { title: `OnlyPaks ${params.profile}` }
 }
 
+
 export default async function Home({ params }: { params: { profile: string } }) {
 
     const fetchUser = async () => {
@@ -70,21 +71,95 @@ export default async function Home({ params }: { params: { profile: string } }) 
     const response = await fetchUser()
 
     return (
-        <div className="h-screen  mx-auto max-w-7xl xr:p-3 sm:px-12 md:px-3 md:py-3 xr:gap-6 grid-columns">
+        /*    <div className="mx-auto max-w-7xl xr:px-3 xr:pt-3 sm:px-12 md:px-3 md:py-3 xr:gap-3 flex h-screen">
+   
+               <div className="w-auto min-w-0 flex-shrink-" >
+                   <Sidebar />
+               </div>
+   
+   
+               <div className='w-min grow' >
+                   <ScrollBar >
+                       <div className="rounded-lg  border dark:border-none dark:bg-background-base">
+   
+   
+                           <Navbar fullName={response.userData.fullName} />
+   
+                           <Profile userData={response.userData} />
+   
+                           <Cards userPosts={response.userPosts} />
+   
+                           <LoadMore />
+   
+   
+   
+                       </div>
+                   </ScrollBar>
+               </div>
+   
+               <div className='hidden lg:block '>
+                   <Pricing />
+               </div>
+   
+           </div >
+    */
 
-            <Sidebar />
+        /*     <div class="mx-auto max-w-[80rem] py-2.5 px-2 sm:px-5 md:px-10 lg:px-2.5 gap-5 grid-columns">
+    
+                <div className=''>
+                    <Sidebar />
+                </div>
+    
+    
+                <div className="custom-scrollbar overflow-y-auto lg:min-w-[38rem] lg:max-w-[40rem]">
+    
+                    <div className=" bg-white dark:bg-background-base">
+    
+                        <Navbar fullName={response.userData.fullName} />
+    
+                        <Profile userData={response.userData} />
+    
+                        <Cards userPosts={response.userPosts} />
+    
+                        <LoadMore />
+    
+                    </div>
+    
+                </div>
+    
+    
+                <div className='hidden lg:block col-span-1'>
+                    <Pricing />
+                </div>
+    
+            </div> */
 
-            <div className="overflow-auto  md:min-w-[30rem] md:max-w-[40rem]  xr:rounded-lg  xr:border  xr:dark:border-none  xr:dark:bg-background-base">
-                <Navbar fullName={response.userData.fullName} />
-                <Profile userData={response.userData} />
-                <Cards userPosts={response.userPosts} />
-                <LoadMore />
-            </div>
+        <div class="mx-auto max-w-[45rem] lg:max-w-[68rem] xl:max-w-[80rem] xs:px-4">
 
-            <div className='hidden lg:block'>
+            <div class="grid xs:grid-cols-[min-content,_1fr] lg:grid-cols-[min-content,_auto,_auto] xs:gap-4 xl:gap-6">
+
+                <Sidebar />
+
+                <div class="overflow-y-auto lg:min-w-[37rem] lg:max-w-[38rem]">
+
+                    <div class="bg-white dark:bg-base ">
+                        <Navbar fullName={response.userData.fullName} />
+
+                        <Profile userData={response.userData} />
+
+                        <Cards userPosts={response.userPosts} />
+
+                        <LoadMore />
+                    </div>
+
+                </div>
+
                 <Pricing />
+
             </div>
 
         </div>
+
+
     )
 }

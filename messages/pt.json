@@ -1,12 +1,25 @@
 {
+  "Metadata": {
+    "keywords": "conteúdo exclusivo, onlypaks, onlypacks, criadores, premium, assinatura, tokens, prazer único, explorar conteúdo",
+    "description": "Explore o melhor conteúdo exclusivo em Onlypaks.com. Descubra publicações destacadas de criadores únicos e muito mais. Envie tokens para acessar publicações específicas ou assine para desfrutar de todo o conteúdo exclusivo de alta qualidade. Explore de qualquer dispositivo e mergulhe em um mundo de prazer e entretenimento."
+  },
+  "NotFoundPage": {
+    "code": "404",
+    "pageTitle": "Página não encontrada",
+    "pageDescription": "Desculpe, não conseguimos encontrar a página que você está procurando.",
+    "goHome": "Voltar para a página inicial",
+    "contactSupport": "Contatar suporte"
+  },
   "Sidebar": {
     "support": "Ajuda e suporte",
-    "login": "Iniciar sessão",
-    "signIn": "Registrarse",
-    "theme": "Modo claro",
-    "languages": "Português",
+    "login": "Entrar",
+    "signIn": "Cadastrar-se",
     "darkMode": "Modo escuro",
-    "lightMode": "Modo luz",
-    "alert": "Tu privacidad es nuestra prioridad. Navega de forma segura y anónima, no almacenamos ni compartimos datos personales durante tu visita."
+    "lightMode": "Modo claro",
+    "titleAlert": "Segurança",
+    "textAlert": "Sua privacidade é nossa prioridade. Navegue com segurança e anonimato, não armazenamos nem compartilhamos dados pessoais durante sua visita."
+  },
+  "LanguageModal": {
+    "chooseLanguage": "Escolha um idioma"
   }
 }

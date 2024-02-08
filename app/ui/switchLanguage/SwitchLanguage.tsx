@@ -1,25 +1,28 @@
 "use client"
 import React, { useState } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { languages, useRouter, usePathname } from '@/navegación';
-import { IconLanguage } from '@/app/lib/icons/SocialIcons';
+import { IconMark } from '@/app/lib/icons/SocialIcons';
 import Modal from '../modals/Modal';
 
 type LanguageProps = {
     buttonClass: React.ButtonHTMLAttributes<HTMLButtonElement>['className'];
     spanClass?: React.HTMLAttributes<HTMLSpanElement>['className'];
+    IconLanguage?: JSX.Element;
 };
 
-export default function SwitchLanguage({ buttonClass, spanClass }: LanguageProps) {
+export default function SwitchLanguage({ buttonClass, spanClass, IconLanguage }: LanguageProps) {
     const [isOpen, setIsOpen] = useState(false);
-
+    const t = useTranslations('LanguageModal');
+    const locale = useLocale();
     const router = useRouter();
-
     const pathname = usePathname();
 
-    const locale = useLocale();
-
-    const getCurrentLanguage = (locale: string) => languages.find(language => language.locale === locale)?.from ?? "English";
+    const getCurrentLanguage = (locale: string) => {
+        const selectedLanguage = languages.find(language => language.locale === locale);
+        const languageFrom = selectedLanguage?.from ?? "English";
+        return languageFrom;
+    };
 
     const changeLocale = (locale: string) => {
         router.push(pathname, { locale: locale });
@@ -27,36 +30,44 @@ export default function SwitchLanguage({ buttonClass, spanClass }: LanguageProps
     };
 
     return (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen} buttonClass={buttonClass} spanClass={spanClass} spanText={getCurrentLanguage(locale)} IconSvg={<IconLanguage />} >
+        <>
+            <button type="button" onClick={() => setIsOpen(true)} className={buttonClass}>
+                {IconLanguage}
+                <span className={spanClass}>{getCurrentLanguage(locale)}</span>
+                <span className="sr-only">Open modal</span>
+            </button>
 
-            <div className="flex items-center justify-between p-3 md:py-3 px-4 border-b rounded-t dark:border-neutral-700">
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
 
-                <h3 className="text-lg sm:text-xl font-medium dark:font-semibold text-gray-900 dark:text-white">
-                    Elige un idioma
-                </h3>
+                <div className="rounded-lg bg-white dark:bg-elevated-base">
 
-                <button type="button" onClick={() => setIsOpen(false)} className="bg-transparent rounded-full h-8 w-8 inline-flex justify-center items-center focus:outline-none hover:bg-neutral-700/10 dark:hover:bg-neutral-700/70">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 stroke-neutral-500 dark:stroke-neutral-400">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                    <span className="sr-only">Close modal</span>
-                </button>
+                    <div className="flex items-center justify-between p-3 md:p-4 border-b rounded-t dark:border-neutral-border">
 
-            </div>
+                        <h3 className="mr-3 text-lg md:text-xl font-medium dark:font-semibold text-neutral-800 dark:text-white">
+                            {t('chooseLanguage')}
+                        </h3>
 
-            <div className="p-3 md:p-4">
-                <ul className="grid grid-cols-2 sm:grid-cols-3 gap-1">
-                    {languages.map((language, index) => (
-                        <li key={index}>
-                            <button type='button' onClick={() => changeLocale(language.locale)} className={`${language.locale === locale && 'bg-neutral-700/10 dark:bg-neutral-700/70'} flex flex-col items-center justify-center w-full p-2.5 text-sm font-medium rounded-lg hover:bg-neutral-700/10 dark:hover:bg-neutral-700/70`}>
-                                <span className="mb-2">{language.from}</span>
-                                <span className="text-neutral-500 dark:text-neutral-400">{language.language}</span>
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                        <button type="button" onClick={() => setIsOpen(false)} className="h-8 w-8 rounded-full inline-flex justify-center items-center hover:bg-black/10 dark:hover:bg-white/10">
+                            <IconMark strokeWidth={2} className="flex-shrink-0 w-6 h-6 stroke-neutral-800 dark:stroke-white" />
+                            <span className="sr-only">Close modal</span>
+                        </button>
 
-        </Modal >
+                    </div>
+
+                    <div className="p-3 md:p-4">
+                        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-1">
+                            {languages.map((language, index) => (
+                                <li key={index}>
+                                    <div onClick={() => changeLocale(language.locale)} className={`${language.locale === locale && 'bg-black/5 dark:bg-white/5'} flex flex-col py-2 px-2.5 md:px-3 text-sm md:text-base rounded-lg cursor-pointer hover:bg-black/10 dark:hover:bg-white/10`}>
+                                        <span className="text-neutral-800 dark:text-white mb-1 truncate">{language.from}</span>
+                                        <span className="text-neutral-500 dark:text-neutral-400 truncate">{language.language}</span>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </Modal >
+        </>
     )
 }

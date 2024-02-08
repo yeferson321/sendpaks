@@ -27,9 +27,10 @@ export default function SwitchTheme({ buttonClass, spanClass, IconMoon, IconSun 
     );
 
     return (
-        <button type="button" className={buttonClass} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+        <button type="button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className={buttonClass}>
             {theme === "light" ? IconMoon : IconSun}
             <span className={spanClass}>{theme === 'light' ? t('darkMode') : t('lightMode')}</span>
+            <span className="sr-only">Change language</span>
         </button>
     )
 };

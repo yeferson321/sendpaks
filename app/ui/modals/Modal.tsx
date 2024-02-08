@@ -6,45 +6,25 @@ type ModalProps = {
     children: React.ReactNode;
     isOpen: boolean;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    buttonClass: React.ButtonHTMLAttributes<HTMLButtonElement>['className'];
-    spanClass?: React.HTMLAttributes<HTMLSpanElement>['className'];
-    IconSvg?: JSX.Element;
-    spanText?: string;
 };
 
-export default function Modal({ children, isOpen, setIsOpen, buttonClass, spanClass, IconSvg, spanText }: ModalProps) {
+export default function Modal({ children, isOpen, setIsOpen }: ModalProps) {
     return (
-        <>
-            <button type="button" onClick={() => setIsOpen(true)} className={buttonClass}>
-                {IconSvg}
-                <span className={spanClass}>{spanText}</span>
-            </button>
-
-            <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10" onClose={() => setIsOpen(false)}>
-
-                    <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
-                        <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
-                    </Transition.Child>
-
-                    <div className="fixed inset-0 overflow-y-auto">
-
-                        <div className="flex min-h-full items-center justify-center">
-
-                            <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
-
-                                <Dialog.Panel className="w-full max-w-xl rounded-lg bg-white dark:bg-[#282828] transform transition-all">
-
-                                    {children}
-
-                                </Dialog.Panel>
-                            </Transition.Child>
-
-                        </div>
+        <Transition appear show={isOpen} as={Fragment}>
+            <Dialog as="div" className="relative z-30" onClose={() => setIsOpen(false)}>
+                <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
+                    <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
+                </Transition.Child>
+                <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center">
+                        <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
+                            <Dialog.Panel className="w-full max-w-max transform transition-all">
+                                {children}
+                            </Dialog.Panel>
+                        </Transition.Child>
                     </div>
-                </Dialog>
-            </Transition>
-        </>
-
+                </div>
+            </Dialog>
+        </Transition>
     )
 }

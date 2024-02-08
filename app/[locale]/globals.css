@@ -3,7 +3,34 @@
 @tailwind utilities;
 
 * {
-  @apply transition-colors duration-100;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)!important;
+}
+
+* {
+  touch-action: manipulation!important;
+}
+
+/* Ancho del scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* Fondo del track del scrollbar */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  display: none;
+}
+
+/* Color del thumb del scrollbar (la parte móvil) */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 8px;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  display: block;
 }
 
 .scroll-hidden {
@@ -14,18 +41,4 @@
 
 .scroll-hidden::-webkit-scrollbar {
   display: none;
-}
-
-@media (min-width: 550px) {
-  .grid-columns {
-    display: grid;
-    grid-template-columns: 1fr auto;
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-columns {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-  }
 }
