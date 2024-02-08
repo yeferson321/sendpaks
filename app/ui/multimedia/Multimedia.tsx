@@ -39,13 +39,16 @@ export default function Multimedia({ multimedia }: MultimediaProps) {
     };
 
     useEffect(() => {
-        if (sliderRef.current) {
-            sliderRef.current.addEventListener('scroll', handleScroll);
+        const currentRef = sliderRef.current;
+    
+        if (currentRef) {
+            currentRef.addEventListener('scroll', handleScroll);
             return () => {
-                sliderRef.current?.removeEventListener('scroll', handleScroll);
+                currentRef.removeEventListener('scroll', handleScroll);
             };
         }
     }, []);
+    
 
     const videoRef = useRef<HTMLVideoElement>(null);
 
