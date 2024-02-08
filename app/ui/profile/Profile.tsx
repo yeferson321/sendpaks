@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { SetStateAction, useState } from 'react';
 import { ProfileProps, SocialIcons } from '@/app/lib/definitions/definitions';
 import { IconTwitter, IconFacebook, IconInstagram, IconYoutube, IconTiktok } from '@/app/lib/icons/SocialIcons';
-import ModalImage from '../modals/ModalImage';
 import Modal from '../modals/Modal';
 
 const platformIcons: SocialIcons = {

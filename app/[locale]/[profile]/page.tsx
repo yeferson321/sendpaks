@@ -134,15 +134,15 @@ export default async function Home({ params }: { params: { profile: string } }) 
     
             </div> */
 
-        <div class="mx-auto max-w-[45rem] lg:max-w-[68rem] xl:max-w-[80rem] xs:px-4">
+        <div className="mx-auto max-w-[45rem] lg:max-w-[68rem] xl:max-w-[80rem] xs:px-4">
 
-            <div class="grid xs:grid-cols-[min-content,_1fr] lg:grid-cols-[min-content,_auto,_auto] xs:gap-4 xl:gap-6">
+            <div className="grid xs:grid-cols-[min-content,_1fr] lg:grid-cols-[min-content,_auto,_auto] xs:gap-4 xl:gap-6">
 
                 <Sidebar />
 
-                <div class="overflow-y-auto lg:min-w-[37rem] lg:max-w-[38rem]">
+                <div className="overflow-y-auto lg:min-w-[37rem] lg:max-w-[38rem]">
 
-                    <div class="bg-white dark:bg-base ">
+                    <div className="bg-white dark:bg-base ">
                         <Navbar fullName={response.userData.fullName} />
 
                         <Profile userData={response.userData} />

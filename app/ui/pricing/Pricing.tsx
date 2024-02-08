@@ -7,10 +7,10 @@ export default function Pricing() {
     const [selected, setSelected] = useState(1);
     const t = useTranslations('Sidebar');
 
-    const getCurrentTime = () => {
+/*     const getCurrentTime = () => {
         const currentDate = new Date();
         return currentDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-    }
+    } */
 
     return (
         <>
@@ -28,7 +28,7 @@ export default function Pricing() {
                         <div className="flex flex-col gap-1 w-full">
                             <div className="flex items-center space-x-2 rtl:space-x-reverse">
                                 <span className="text-sm font-semibold whitespace-nowrap text-gray-900 dark:text-white">Sofia Tabares</span>
-                                <span className="text-sm font-normal whitespace-nowrap text-gray-500 dark:text-gray-400">{getCurrentTime()}</span>
+                                <span className="text-sm font-normal whitespace-nowrap text-gray-500 dark:text-gray-400">343</span>
                             </div>
                             <div className="leading-1.5 px-3 py-2 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                                 <p className="text-sm font-normal text-gray-900 dark:text-white">Puede que sea virgen😈 pero no soy tan inocente como podrías pensar 😉 ¡¡¡CONTENIDO TOTALMENTE DESNUDO DISPONIBLE!!! 💓</p>
