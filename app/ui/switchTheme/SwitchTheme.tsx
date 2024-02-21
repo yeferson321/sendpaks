@@ -21,6 +21,7 @@ export default function SwitchTheme({ buttonClass, spanClass, IconMoon, IconSun 
 
     if (!mounted) return (
         <button type="button" className={buttonClass}>
+            <span className="sr-only">Change language</span>
             {IconMoon}
             <span className={spanClass}>{t('darkMode')}</span>
         </button>
@@ -28,9 +29,9 @@ export default function SwitchTheme({ buttonClass, spanClass, IconMoon, IconSun 
 
     return (
         <button type="button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className={buttonClass}>
+            <span className="sr-only">Change language</span>
             {theme === "light" ? IconMoon : IconSun}
             <span className={spanClass}>{theme === 'light' ? t('darkMode') : t('lightMode')}</span>
-            <span className="sr-only">Change language</span>
         </button>
     )
 };

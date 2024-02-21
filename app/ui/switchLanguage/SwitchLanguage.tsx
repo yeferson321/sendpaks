@@ -32,9 +32,9 @@ export default function SwitchLanguage({ buttonClass, spanClass, IconLanguage }:
     return (
         <>
             <button type="button" onClick={() => setIsOpen(true)} className={buttonClass}>
+                <span className="sr-only">Open modal</span>
                 {IconLanguage}
                 <span className={spanClass}>{getCurrentLanguage(locale)}</span>
-                <span className="sr-only">Open modal</span>
             </button>
 
             <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -47,9 +47,9 @@ export default function SwitchLanguage({ buttonClass, spanClass, IconLanguage }:
                             {t('chooseLanguage')}
                         </h3>
 
-                        <button type="button" onClick={() => setIsOpen(false)} className="h-8 w-8 rounded-full inline-flex justify-center items-center hover:bg-black/10 dark:hover:bg-white/10">
-                            <IconMark strokeWidth={2} className="flex-shrink-0 w-6 h-6 stroke-neutral-800 dark:stroke-white" />
+                        <button type="button" onClick={() => setIsOpen(false)} className="p-1 rounded-full hover:bg-blue-50 dark:hover:bg-blue-500/5 group">
                             <span className="sr-only">Close modal</span>
+                            <IconMark strokeWidth={2} className="flex-shrink-0 w-6 h-6 stroke-neutral-800 dark:stroke-white group-hover:stroke-blue-500" />
                         </button>
 
                     </div>
@@ -59,7 +59,7 @@ export default function SwitchLanguage({ buttonClass, spanClass, IconLanguage }:
                             {languages.map((language, index) => (
                                 <li key={index}>
                                     <div onClick={() => changeLocale(language.locale)} className={`${language.locale === locale && 'bg-black/5 dark:bg-white/5'} flex flex-col py-2 px-2.5 md:px-3 text-sm md:text-base rounded-lg cursor-pointer hover:bg-black/10 dark:hover:bg-white/10`}>
-                                        <span className="text-neutral-800 dark:text-white mb-1 truncate">{language.from}</span>
+                                        <span className="text-neutral-800 font-medium dark:text-white mb-1 truncate">{language.from}</span>
                                         <span className="text-neutral-500 dark:text-neutral-400 truncate">{language.language}</span>
                                     </div>
                                 </li>

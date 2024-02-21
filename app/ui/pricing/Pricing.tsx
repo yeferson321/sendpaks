@@ -7,18 +7,18 @@ export default function Pricing() {
     const [selected, setSelected] = useState(1);
     const t = useTranslations('Sidebar');
 
-/*     const getCurrentTime = () => {
-        const currentDate = new Date();
-        return currentDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-    } */
+    /*     const getCurrentTime = () => {
+            const currentDate = new Date();
+            return currentDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+        } */
 
     return (
         <>
-            <aside className="hidden lg:block overflow-y-auto h-screen sticky top-0" aria-label="Sidebar">
+            <aside className="fixed xs:sticky  bottom-3 z-20 w-full xs:overflow-y-auto xs:h-screen px-4" aria-label="Sidebar">
+                {/*             fixed xs:sticky w-full z-20 xs:top-0 xs:overflow-y-auto xs:h-screen        overflow-y-auto h-screen sticky top-0 */}
+                <div className="p-3 rounded-xl bg-[#ffffff] shadow-lg shadow-black/20 dark:bg-elevated-base">
 
-                <div className="p-3 rounded-xl space-y-3">
-
-                    <div className="flex gap-2.5">
+                    <div className="hidden xs:flex gap-2.5">
 
                         <div className="relative flex-none">
                             <Image src="https://profile.onlypaks.com/sofiatabares01/vw42w84n5yr.jpg" alt="Profile Picture" width={36} height={36} priority={true} className="rounded-full" />
@@ -37,11 +37,18 @@ export default function Pricing() {
                         </div>
                     </div>
 
-                    <button type="button" className="flex-1 whitespace-nowrap w-full h-10 p-1 rounded-full text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:ring-0 focus:outline-none">
-                        Obtén acceso completo por <span className="text-lg"> $2</span>
-                    </button>
+                    <div className="grid grid-cols-2">
+                        <div className="flex flex-col mx-2 whitespace-nowrap">
+                            <p className="text-2xl font-bold text-neutral-800 dark:text-white truncate">USD $3 <span className="text-base text-neutral-500 dark:text-neutral-300">/mes</span></p>
+                            <p className="text-sm font-medium text-neutral-500 dark:text-neutral-300 truncate">Pago seguro</p>
+                        </div>
+                        <button type="button" className="text-base font-semibold h-full w-full p-2 rounded-xl whitespace-nowrap truncate text-white bg-blue-500 hover:bg-blue-600">
+                            Pagar para ver
+                        </button>
+                    </div>
 
-                    <p className="text-xs leading-5 text-gray-600">Utilizamos las últimas tecnologías de cifrado para proteger sus datos bancarios y garantizar transacciones seguras.</p>
+
+                    {/* <p className="text-xs leading-5 text-gray-600">Utilizamos las últimas tecnologías de cifrado para proteger sus datos bancarios y garantizar transacciones seguras.</p>
 
                     <div className="w-full flex flex-col ">
                         <span className=" text-sm text-center text-gray-500  dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Onlypaks™</a>. All Rights Reserved.
@@ -57,12 +64,12 @@ export default function Pricing() {
                                 <a href="#" className="hover:underline">Contact</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
 
 
 
-                <div className="w-full flex flex-col items-center">
+                {/* <div className="w-full flex flex-col items-center">
                     <span className="text-sm text-gray-500  dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.
                     </span>
                     <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
@@ -76,7 +83,7 @@ export default function Pricing() {
                             <a href="#" className="hover:underline">Contact</a>
                         </li>
                     </ul>
-                </div>
+                </div> */}
 
 
 

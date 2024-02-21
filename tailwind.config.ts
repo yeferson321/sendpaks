@@ -27,7 +27,7 @@ const config: Config = {
       colors: {
         "body": "#0A0A0A",
         "base": "#19191A",
-        'elevated-base': '#242424',
+        'elevated-base': '#1f1f1f',
         'neutral-border': 'rgb(64 64 64)',
         "green": "#20D27D",
         "orange": "#EF571C",   

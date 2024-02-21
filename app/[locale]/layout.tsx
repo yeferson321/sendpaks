@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations({ locale, namespace: 'Metadata' });
-  
+
   return {
     title: 'OnlyPaks',
     keywords: t('keywords'),
@@ -23,18 +23,16 @@ export default function RootLayout({ children, params: { locale } }: { children:
   const messages = useMessages();
 
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale)) {
-    return NotFound();
-  }
+  if (!locales.includes(locale as string)) NotFound();
 
   return (
     <html lang={locale}>
       <body className={`bg-white dark:bg-body ${inter.className}`}>
-        <Providers>
-          <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Providers>
             {children}
-          </NextIntlClientProvider>
-        </Providers>
+          </Providers>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
