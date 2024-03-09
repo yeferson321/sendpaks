@@ -41,7 +41,7 @@ export default function SwitchLanguage({ buttonClass, spanClass, IconLanguage }:
 
                 <div className="rounded-lg bg-white dark:bg-elevated-base">
 
-                    <div className="flex items-center justify-between p-3 md:p-4 border-b rounded-t dark:border-neutral-border">
+                    <div className="flex items-center justify-between p-3 md:p-4 rounded-t border-b dark:border-neutral-border">
 
                         <h3 className="mr-3 text-lg md:text-xl font-medium dark:font-semibold text-neutral-800 dark:text-white">
                             {t('chooseLanguage')}
@@ -49,7 +49,7 @@ export default function SwitchLanguage({ buttonClass, spanClass, IconLanguage }:
 
                         <button type="button" onClick={() => setIsOpen(false)} className="p-1 rounded-full hover:bg-blue-50 dark:hover:bg-blue-500/5 group">
                             <span className="sr-only">Close modal</span>
-                            <IconMark strokeWidth={2} className="flex-shrink-0 w-6 h-6 stroke-neutral-800 dark:stroke-white group-hover:stroke-blue-500" />
+                            <IconMark strokeWidth={2} className="flex-shrink-0 w-7 h-7 stroke-neutral-800 dark:stroke-white group-hover:stroke-blue-500" />
                         </button>
 
                     </div>

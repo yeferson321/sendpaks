@@ -5,6 +5,8 @@ import { SetStateAction, useState } from 'react';
 import { ProfileProps, SocialIcons } from '@/app/lib/definitions/definitions';
 import { IconTwitter, IconFacebook, IconInstagram, IconYoutube, IconTiktok } from '@/app/lib/icons/SocialIcons';
 import Modal from '../modals/Modal';
+import Pricing from '../pricing/Pricing';
+import RightSidebar from '../rightSidebar/RightSidebar';
 
 const platformIcons: SocialIcons = {
     Twitter: <IconTwitter />,
@@ -31,7 +33,7 @@ export default function Profile({ userData }: ProfileProps) {
 
                     <div className="w-full overflow-hidden relative h-[180px] ">
 
-                        <Image src={userData.bannerPictureUrl} onClick={() => openModal(userData.bannerPictureUrl)} alt="Banner Profile" width={1440} height={990} priority={true} className="absolute block left-0 w-full h-full top-0 object-cover" />
+                        <Image src={userData.bannerPictureUrl} onClick={() => openModal(userData.bannerPictureUrl)} alt="Banner Profile" width={1440} height={990} priority={true} className="absolute block left-0 w-full h-full  top-0 object-cover blur-2xl" />
 
                         {/*  {isModalOpen && (
                             <ModalImage image={selectedImage} closeModal={setIsModalOpen} />
@@ -39,7 +41,7 @@ export default function Profile({ userData }: ProfileProps) {
 
                         <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
                             <div onClick={() => setIsModalOpen(false)}>
-                                <Image src={userData.bannerPictureUrl} alt="Banner Profile" width={1000} height={990} />
+                                <Image src={userData.bannerPictureUrl} alt="Banner Profile" width={1000} height={990} className='object-cover blur-2xl' />
                             </div>
                         </Modal>
 
@@ -57,7 +59,7 @@ export default function Profile({ userData }: ProfileProps) {
 
                             <div className="relative -mt-12">
 
-                                <Image src={userData.profilePictureUrl} onClick={() => openModal(userData.profilePictureUrl)} alt="Profile Picture" width={96} height={96} priority={true} className="rounded-full border-2 border-white dark:border-gray-950" />
+                                <Image src={userData.profilePictureUrl} onClick={() => openModal(userData.profilePictureUrl)} alt="Profile Picture" width={96} height={96} priority={true} className="rounded-full border-2 border-white dark:border-gray-950 blur-2xl" />
 
                                 {/*  <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
                                     <Image src="https://profile.onlypaks.com/sofiatabares01%2Ffvw445677095g.jpg" onClick={() => setIsModalOpen(false)} alt="Profile Picture" width={700} height={700} />
@@ -72,6 +74,8 @@ export default function Profile({ userData }: ProfileProps) {
                             </div>
 
                         </div>
+
+
 
 
                         {/*  {isModalOpen && (
@@ -90,10 +94,10 @@ export default function Profile({ userData }: ProfileProps) {
                                         </svg>
                                     )}
                                 </div>
-                                        <div className='w-full'>
-                                        <p className="text-sm text-gray-600 dark:text-slate-300 truncate">{userData.userName} - Ahora mismo</p>
-                                        </div>
-                             
+                                <div className='w-full'>
+                                    <p className="text-sm text-gray-600 dark:text-slate-300 truncate">{userData.userName} - Ahora mismo</p>
+                                </div>
+
                             </div>
 
                             <div className="mt-3.5">
@@ -106,6 +110,9 @@ export default function Profile({ userData }: ProfileProps) {
                                 </svg>
                                 <span className="text-sm text-gray-600 dark:text-slate-300">{userData.country}</span>
                             </div>
+
+
+                     
 
                             {/*  <div className="mt-5">
 <ul className="scrollbar flex whitespace-nowrap space-x-2 overflow-x-auto touch-pan-x">

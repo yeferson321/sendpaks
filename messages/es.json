@@ -17,7 +17,7 @@
     "darkMode": "Modo oscuro",
     "lightMode": "Modo luz",
     "titleAlert": "Seguridad",
-    "textAlert": "Tu privacidad es prioridad. Navega de forma segura y anónima, no almacenamos datos personales durante tu visita."
+    "textAlert": "Tu privacidad es prioridad. Navega de forma segura, no almacenamos cookies ni recopilamos datos durante tu visita."
   },
   "LanguageModal": {
     "chooseLanguage": "Elige un idioma"

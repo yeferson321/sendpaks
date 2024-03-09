@@ -39,3 +39,7 @@ export type SocialIcons = {
     Youtube: JSX.Element;
     Tiktok: JSX.Element;
 };
+
+export type ClassProps = {
+    className?: React.HTMLAttributes<HTMLSpanElement>['className'];
+};

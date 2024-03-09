@@ -5,6 +5,8 @@ import Navbar from '../../ui/navbar/Navbar';
 import Profile from '../../ui/profile/Profile'
 import Sidebar from '../../ui/sidebar/Sidebar';
 import Pricing from '@/app/ui/pricing/Pricing';
+import RightSidebar from '@/app/ui/rightSidebar/RightSidebar';
+import Footer from '@/app/ui/footer/Footer';
 
 export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
     return { title: `OnlyPaks ${params.profile}` }
@@ -134,27 +136,27 @@ export default async function Home({ params }: { params: { profile: string } }) 
     
             </div> */
 
-        <div className="mx-auto max-w-[45rem] lg:max-w-[68rem] xl:max-w-[80rem] px-4 xs:py-2">
+        <div className="mx-auto max-w-[43rem] lg:max-w-[68rem] xl:max-w-[80rem] p-2 fo:px-4 xs:py-0">
 
-            <div className="grid grid-rows-[auto, 1fr] xs:grid-cols-[min-content,_1fr] w-mi lg:grid-cols-[min-content,_auto,_auto] gap-4 xl:gap-6">
+            <div className="grid grid-rows-[min-content,_1fr] xs:grid-cols-[min-content,_1fr] gap-4 xs:gap-0 xl:gap-6">
 
                 <Sidebar />
 
-                <div className="overflow-y-auto lg:min-w-[37rem] lg:max-w-[38rem]">
+                <div className="lg:flex lg:gap-4 xl:gap-6">
 
-                    <div className="bg-white dark:bg-base ">
-                       {/*  <Navbar fullName={response.userData.fullName} /> */}
+                    <div className="lg:flex-1 lg:min-w-[570px] lg:max-w-[600px]">
 
                         <Profile userData={response.userData} />
 
                         <Cards userPosts={response.userPosts} />
 
                         <LoadMore />
+
                     </div>
 
-                </div>
+                    <RightSidebar className="lg:flex-initial" />
 
-          {/*     <Pricing /> */}
+                </div>
 
             </div>
 

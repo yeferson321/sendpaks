@@ -42,3 +42,10 @@
 .scroll-hidden::-webkit-scrollbar {
   display: none;
 }
+
+
+
+.container {
+  transform: translateX(0)
+}
+
