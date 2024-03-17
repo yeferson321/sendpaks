@@ -3,9 +3,9 @@ import Cards from '../../ui/cards/Cards';
 import LoadMore from '../../ui/loadMore/LoadMore';
 import Navbar from '../../ui/navbar/Navbar';
 import Profile from '../../ui/profile/Profile'
-import Sidebar from '../../ui/sidebar/Sidebar';
+import Header from '../../ui/header/Header';
 import Pricing from '@/app/ui/pricing/Pricing';
-import RightSidebar from '@/app/ui/rightSidebar/RightSidebar';
+import Sidebar from '@/app/ui/Sidebar/Sidebar';
 import Footer from '@/app/ui/footer/Footer';
 
 export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
@@ -67,7 +67,14 @@ export default async function Home({ params }: { params: { profile: string } }) 
             totalComments: 5
         }]
 
-        return { userData, userPosts };
+        const payments = {  
+            discount_expiry_date: "2024-03-16T12:00:00",
+            original_price: 10.99,
+            discounted_price: 2.99,
+            discount_rate: 70         
+        }
+
+        return { userData, userPosts, payments };
     };
 
     const response = await fetchUser()
@@ -136,11 +143,11 @@ export default async function Home({ params }: { params: { profile: string } }) 
     
             </div> */
 
-        <div className="mx-auto max-w-[43rem] lg:max-w-[68rem] xl:max-w-[80rem] p-2 fo:px-4 xs:py-0">
+        <div className="mx-auto max-w-[43rem] lg:max-w-[69rem] xl:max-w-[80rem] p-2.5 xs:py-0 xs:px-3">
 
-            <div className="grid grid-rows-[min-content,_1fr] xs:grid-cols-[min-content,_1fr] gap-4 xs:gap-0 xl:gap-6">
+            <div className="grid grid-rows-[min-content,_1fr] xs:grid-cols-[min-content,_1fr] gap-y-4 xs:gap-y-0 xl:gap-x-6">
 
-                <Sidebar />
+                <Header />
 
                 <div className="lg:flex lg:gap-4 xl:gap-6">
 
@@ -152,9 +159,11 @@ export default async function Home({ params }: { params: { profile: string } }) 
 
                         <LoadMore />
 
+                        <Footer className="lg:hidden" />
+
                     </div>
 
-                    <RightSidebar className="lg:flex-initial" />
+                    <Sidebar payments={response.payments} className="hidden lg:block lg:flex-initial lg:max-w-[360px]" />
 
                 </div>
 

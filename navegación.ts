@@ -12,7 +12,7 @@ export const languages = [
   { language: "Russian", from: "Русский", locale: "ru" },
 ];
 
-export const locales = ["en", "es", "pt"];
+export const locales = ["en", "es", "pt", "fr", "ar", "zh", "ja", "it", "ru"];
 export const localePrefix = "always"; // Default
 
 export const { Link, redirect, usePathname, useRouter } =

@@ -1,15 +1,10 @@
-"use client"
+'use client'
 import React, { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { languages, useRouter, usePathname } from '@/navegación';
 import { IconMark } from '@/app/lib/icons/SocialIcons';
 import Modal from '../modals/Modal';
-
-type LanguageProps = {
-    buttonClass: React.ButtonHTMLAttributes<HTMLButtonElement>['className'];
-    spanClass?: React.HTMLAttributes<HTMLSpanElement>['className'];
-    IconLanguage?: JSX.Element;
-};
+import { LanguageProps } from '@/app/lib/definitions/definitions';
 
 export default function SwitchLanguage({ buttonClass, spanClass, IconLanguage }: LanguageProps) {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +36,7 @@ export default function SwitchLanguage({ buttonClass, spanClass, IconLanguage }:
 
                 <div className="rounded-lg bg-white dark:bg-elevated-base">
 
-                    <div className="flex items-center justify-between p-3 md:p-4 rounded-t border-b dark:border-neutral-border">
+                    <div className="flex items-center justify-between p-3 md:p-4 border-b border-gray-200 dark:border-neutral-border">
 
                         <h3 className="mr-3 text-lg md:text-xl font-medium dark:font-semibold text-neutral-800 dark:text-white">
                             {t('chooseLanguage')}

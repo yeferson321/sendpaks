@@ -7,6 +7,15 @@ export default getRequestConfig(async ({ locale }) => {
   if (!locales.includes(locale as any)) NotFound();
 
   return {
+    formats: {
+      number: {
+        currency: {
+          currencyDisplay: "code",
+          style: "currency",
+          currency: "USD",
+        }
+      }
+    },
     messages: (await import(`./messages/${locale}.json`)).default,
   };
 });

@@ -6,7 +6,7 @@ import { ProfileProps, SocialIcons } from '@/app/lib/definitions/definitions';
 import { IconTwitter, IconFacebook, IconInstagram, IconYoutube, IconTiktok } from '@/app/lib/icons/SocialIcons';
 import Modal from '../modals/Modal';
 import Pricing from '../pricing/Pricing';
-import RightSidebar from '../rightSidebar/RightSidebar';
+import Sidebar from '../Sidebar/Sidebar';
 
 const platformIcons: SocialIcons = {
     Twitter: <IconTwitter />,
@@ -129,6 +129,9 @@ export default function Profile({ userData }: ProfileProps) {
 </ul>
 </div> */}
 
+
+                            
+
                             <div className="flex justify-evenly mt-4 py-1.5 border-y sm:border-y-0 sm:border-t dark:border-gray-600 text-gray-800 dark:text-slate-300 ">
                                 <div className="text-center">
                                     <span className="block text-sm font-medium">{userData.userRank}</span>
@@ -143,6 +146,8 @@ export default function Profile({ userData }: ProfileProps) {
                                     <span className="text-sm">Posts</span>
                                 </div>
                             </div>
+
+                           {/*  <Sidebar className="lg:hidden"/> */}
 
                         </div>
 

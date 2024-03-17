@@ -10,7 +10,7 @@
     "goHome": "Ir a la página de inicio",
     "contactSupport": "Contactar soporte"
   },
-  "Sidebar": {
+  "Header": {
     "support": "Ayuda y soporte",
     "login": "Iniciar sesion",
     "signIn": "Registrarse",
@@ -21,5 +21,25 @@
   },
   "LanguageModal": {
     "chooseLanguage": "Elige un idioma"
+  },
+  "Sidebar": {
+    "Timer": {
+      "textOffer": "¡Oferta única! ⏳ Descuento del 70% válido solo por",
+      "hours": "horas",
+      "minutes": "minutos",
+      "seconds": "segundos"
+    },
+    "Pricing": {
+      "originalPrice": "{price, number, currency}",
+      "discountedPrice": "{price, number, currency}",
+      "discountDescription": "{value, number, percent} de descuento",
+      "payToView": "Pagar para ver"
+    }
+  },
+  "Footer": {
+    "about": "Acerca de",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos",
+    "rights": "Derechos reservados."
   }
 }

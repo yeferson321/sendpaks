@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -8,7 +8,7 @@ type ModalProps = {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function ModalSidebar({ children, isOpen, setIsOpen }: ModalProps) {
+export default function ModalHeader({ children, isOpen, setIsOpen }: ModalProps) {
     return (
         <Transition.Root show={isOpen} as={Fragment}>
             <Dialog as="div" className="xs:hidden relative z-30" onClose={() => setIsOpen(false)}>

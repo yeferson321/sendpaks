@@ -28,7 +28,7 @@ export default function RootLayout({ children, params: { locale } }: { children:
   return (
     <html lang={locale}>
       <body className={`bg-white dark:bg-body ${inter.className}`}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages} formats={{ number: { currency: { currencyDisplay: "code", style: "currency", currency: "USD" } } }}>
           <Providers>
             {children}
           </Providers>

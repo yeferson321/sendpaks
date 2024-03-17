@@ -43,3 +43,24 @@ export type SocialIcons = {
 export type ClassProps = {
     className?: React.HTMLAttributes<HTMLSpanElement>['className'];
 };
+
+export type LanguageProps = {
+    buttonClass: React.ButtonHTMLAttributes<HTMLButtonElement>['className'];
+    spanClass?: React.HTMLAttributes<HTMLSpanElement>['className'];
+    IconLanguage?: JSX.Element;
+};
+
+export type ThemeProps = {
+    buttonClass: React.ButtonHTMLAttributes<HTMLButtonElement>['className'];
+    spanClass?: React.HTMLAttributes<HTMLSpanElement>['className'];
+    IconMoon: JSX.Element;
+    IconSun: JSX.Element;
+};
+
+export type ModalTimer = {
+    remainingTime: {
+        hours: number;
+        minutes: number;
+        seconds: number;
+    };
+};

@@ -1,30 +1,28 @@
-import Link from "next/link";
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { ClassProps } from '@/app/lib/definitions/definitions';
 
-type Props = {
-  className?: React.HTMLAttributes<HTMLSpanElement>['className'];
-};
-
-export default function Footer({ className }: Props) {
-  const getCurrentYear = () => {
-    return new Date().getFullYear();
-  };
+export default function Footer({ className }: ClassProps) {
+  const t = useTranslations('Footer');
+  const getCurrentYear = () => new Date().getFullYear();;
 
   return (
     <footer className={`${className}`}>
-      <ul className="flex justify-evenly text-xs font-medium text-neutral-500 dark:text-neutral-300">
+      <hr className="my-4 mx-3 border-gray-200 dark:border-neutral-border" />
+      <ul className="flex justify-evenly text-[13px] font-medium text-neutral-500 dark:text-neutral-300">
         <li>
-          <Link href="about" className="hover:underline">About</Link>
+          <Link href="about" className="hover:underline">{t('about')}</Link>
         </li>
         <li>
-          <Link href="privacy" className="hover:underline">Privacy Policy</Link>
+          <Link href="privacy" className="hover:underline">{t('privacy')}</Link>
         </li>
         <li>
-          <Link href="terms" className="hover:underline">Terms</Link>
+          <Link href="terms" className="hover:underline">{t('terms')}</Link>
         </li>
       </ul>
-      <span className="block mt-3 text-center text-xs font-medium text-neutral-500 dark:text-neutral-300">© {getCurrentYear()} <a href="https://onlypaks.com/" className="hover:underline">OnlyPaks™</a>. All Rights Reserved.
+      <span className="block mt-3 text-center text-[13px] font-medium text-neutral-500 dark:text-neutral-300">
+        © {getCurrentYear()} <a href="https://onlypaks.com/" className="hover:underline">OnlyPaks™</a>. {t('rights')}
       </span>
     </footer>
-
   )
 };

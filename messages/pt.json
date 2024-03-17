@@ -1,25 +1,45 @@
 {
   "Metadata": {
-    "keywords": "conteúdo exclusivo, onlypaks, onlypacks, criadores, premium, assinatura, tokens, prazer único, explorar conteúdo",
-    "description": "Explore o melhor conteúdo exclusivo em Onlypaks.com. Descubra publicações destacadas de criadores únicos e muito mais. Envie tokens para acessar publicações específicas ou assine para desfrutar de todo o conteúdo exclusivo de alta qualidade. Explore de qualquer dispositivo e mergulhe em um mundo de prazer e entretenimento."
+    "keywords": "exclusive content, onlypaks, onlypacks, creators, premium, subscription, tokens, unique pleasure, explore content",
+    "description": "Explore the best exclusive content on Onlypaks.com. Discover standout posts from unique creators and more. Send tokens to access specific posts or subscribe to enjoy all the high-quality exclusive content. Explore from any device and immerse yourself in a world of pleasure and entertainment."
   },
   "NotFoundPage": {
     "code": "404",
-    "pageTitle": "Página não encontrada",
-    "pageDescription": "Desculpe, não conseguimos encontrar a página que você está procurando.",
-    "goHome": "Voltar para a página inicial",
-    "contactSupport": "Contatar suporte"
+    "pageTitle": "Page not found",
+    "pageDescription": "Sorry, we couldn’t find the page you’re looking for.",
+    "goHome": "Go back home",
+    "contactSupport": "Contact support"
   },
-  "Sidebar": {
-    "support": "Ajuda e suporte",
-    "login": "Entrar",
-    "signIn": "Cadastrar-se",
-    "darkMode": "Modo escuro",
-    "lightMode": "Modo claro",
-    "titleAlert": "Segurança",
-    "textAlert": "Sua privacidade é uma prioridade. Navegue de forma segura e anônima, não armazenamos dados pessoais durante a sua visita."
+  "Header": {
+    "support": "Help and support",
+    "login": "Log in",
+    "signIn": "Sign up",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode",
+    "titleAlert": "Security",
+    "textAlert": "Your privacy is a priority. Browse safely and anonymously, we do not store personal data during your visit."
   },
   "LanguageModal": {
-    "chooseLanguage": "Escolha um idioma"
+    "chooseLanguage": "Choose a language"
+  },
+  "Sidebar": {
+    "Timer": {
+      "textOffer": "¡Oferta única! ⏳ Descuento del 70% válido solo por",
+      "hours": "horas",
+      "minutes": "minutos",
+      "seconds": "segundos"
+    },
+    "Pricing": {
+      "originalPrice": "{price, number, currency}",
+      "discountedPrice": "{price, number, currency}",
+      "discountDescription": "{value, number, percent} de descuento",
+      "payToView": "Pagar para ver"
+    }
+  },
+  "Footer": {
+    "about": "Acerca de",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos",
+    "rights": "Derechos reservados."
   }
 }

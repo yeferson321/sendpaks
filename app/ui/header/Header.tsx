@@ -1,21 +1,21 @@
-"use client"
+'use client'
 import { useState } from "react";
 import { useTranslations } from 'next-intl';
 import { IconOnly, IconQuestion, IconMoon, IconSun, IconUser, IconLock, IconLanguage, IconMark, IconEllipsis } from '@/app/lib/icons/SocialIcons';
 import SwitchTheme from '../switchTheme/SwitchTheme';
 import SwitchLanguage from '../switchLanguage/SwitchLanguage';
-import ModalSidebar from '../modals/ModalSidebar';
+import ModalSidebar from '../modals/ModalHeader';
 import Link from 'next/link';
 
-export default function Sidebar() {
+export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    const t = useTranslations('Sidebar');
+    const t = useTranslations('Header');
 
     return (
         <>
-            <aside className="sticky xs:top-0 xs:overflow-y-auto xs:h-screen" aria-label="Sidebar">
+            <aside className="sticky xs:top-0 xs:overflow-y-auto xs:h-screen" aria-label="Header">
 
-                <div className="flex xs:flex-col justify-between xs:justify-normal p-3 xs:h-full rounded-xl shadow-lg xs:shadow-none shadow-black/10 bg-white dark:bg-elevated-base xs:dark:bg-transparent">
+                <div className="flex xs:flex-col justify-between xs:justify-normal p-3 rounded-xl shadow-lg xs:shadow-none shadow-black/10 bg-white dark:bg-elevated-base xs:dark:bg-transparent">
 
                     <Link href="https://onlypaks.com/" className="self-center xs:self-start xs:hidden xl:inline-block xl:ml-2 xl:mb-3">
                         <span className="sr-only">Onlypaks logo</span>
