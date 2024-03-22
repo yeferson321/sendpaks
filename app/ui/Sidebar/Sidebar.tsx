@@ -1,66 +1,40 @@
 'use client'
-/* import { ClassProps } from '@/app/lib/definitions/definitions'; */
+import { useEffect, useState } from 'react';
+import { PaymentsProps, ClassProps } from '@/app/lib/definitions/definitions';
+import { TimeLeftProps } from '@/app/lib/definitions/definitions';
+import { countdownTimer } from '@/app/lib/utils/timerUtils';
 import Timer from '../timer/Timer';
 import Pricing from '../pricing/Pricing';
 import PaymentLogos from '../paymentLogos/PaymentLogos';
 import Footer from '../footer/Footer';
 
-import { useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { countdownTimer } from '@/app/lib/utils/timerUtils';
+export default function Sidebar({ payments, className }: PaymentsProps & ClassProps) {
+  const [remainingTime, setRemainingTime] = useState<TimeLeftProps>({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: false });
 
-export type ClassProps = {
-    className?: React.HTMLAttributes<HTMLSpanElement>['className'];
-};
+  useEffect(() => {
+    if (!payments.discount_expiry_date) return;
 
-export type SidebarProps = {
-    payments: {
-        discount_expiry_date: string;
-        original_price: number;
-        discounted_price: number;
-        discount_rate: number;
-    };
-};
+    const intervalId = setInterval(() => {
+      setRemainingTime(countdownTimer(payments.discount_expiry_date, intervalId));
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
+  return (
+    <aside className={`${className} lg:sticky lg:py-4 lg:top-0 lg:overflow-y-auto lg:h-screen`} aria-label="Sidebar">
 
-export default function Sidebar({ payments, className }: SidebarProps & ClassProps) {
+      <div className="p-3 lg:p-4 space-y-3 lg:space-y-4 rounded-xl border lg:border-0 bg-base/5 dark:bg-base">
 
-    const { discount_expiry_date, original_price, discounted_price } = payments;
+        {remainingTime.expired && <Timer remainingTime={remainingTime} />}
 
-    const [showDiscount, setShowDiscount] = useState(false);
+        <Pricing showDiscount={remainingTime.expired} payments={payments} />
 
-    const [remainingTime, setRemainingTime] = useState({ hours: 24, minutes: 24, seconds: 24 });
+        <PaymentLogos />
 
-    useEffect(() => {
+      </div>
 
-        const difference = new Date(discount_expiry_date).getTime() - new Date().getTime();
+      <Footer className="hidden lg:block mt-4" />
 
-        if (discount_expiry_date && difference > 0) {
-
-            countdownTimer(discount_expiry_date, time => { setRemainingTime(time) }); // Target date: March 1, 2024, 12:00 PM
-
-
-            setShowDiscount(true)
-        }
-    }, [])
-
-    return (
-        <aside className={`${className} sticky lg:top-0 lg:overflow-y-auto lg:h-screen`} aria-label="Sidebar">
-
-            <div className="p-3 space-y-3 lg:space-y-4 rounded-xl border lg:border-0 border-gray-200 dark:border-neutral-border bg-white dark:bg-elevated-base lg:dark:bg-transparent">
-
-                {showDiscount && (
-                    <Timer remainingTime={remainingTime} />
-                )}
-
-                <Pricing payments={payments} showDiscount={showDiscount} />
-
-                <PaymentLogos />
-
-                <Footer className="hidden lg:block" />
-
-            </div>
-
-        </aside>
-    )
+    </aside>
+  )
 };

@@ -68,10 +68,10 @@ export default async function Home({ params }: { params: { profile: string } }) 
         }]
 
         const payments = {  
-            discount_expiry_date: "2024-03-16T12:00:00",
+            discount_expiry_date: "2024-03-22T20:13:00",
             original_price: 10.99,
             discounted_price: 2.99,
-            discount_rate: 70         
+            discount_rate: 0.70        
         }
 
         return { userData, userPosts, payments };
@@ -143,7 +143,7 @@ export default async function Home({ params }: { params: { profile: string } }) 
     
             </div> */
 
-        <div className="mx-auto max-w-[43rem] lg:max-w-[69rem] xl:max-w-[80rem] p-2.5 xs:py-0 xs:px-3">
+        <div className="mx-auto max-w-[43rem] lg:max-w-[69rem] xl:max-w-[80rem] px-3 xs:py-0">
 
             <div className="grid grid-rows-[min-content,_1fr] xs:grid-cols-[min-content,_1fr] gap-y-4 xs:gap-y-0 xl:gap-x-6">
 
@@ -163,7 +163,7 @@ export default async function Home({ params }: { params: { profile: string } }) 
 
                     </div>
 
-                    <Sidebar payments={response.payments} className="hidden lg:block lg:flex-initial lg:max-w-[360px]" />
+                    <Sidebar payments={response.payments} className="hidden lg:block lg:flex-1 l" />
 
                 </div>
 

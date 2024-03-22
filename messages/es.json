@@ -24,7 +24,8 @@
   },
   "Sidebar": {
     "Timer": {
-      "textOffer": "¡Oferta única! ⏳ Descuento del 70% válido solo por",
+      "textOffer": "¡Oferta única! ⏳ Descuento del 70% válido por",
+      "days": "dias",
       "hours": "horas",
       "minutes": "minutos",
       "seconds": "segundos"

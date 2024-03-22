@@ -1,22 +1,29 @@
-import { ModalTimer } from '@/app/lib/definitions/definitions';
 import { useTranslations } from 'next-intl';
+import { TimerProps } from '@/app/lib/definitions/definitions';
 
-export default function Timer({ remainingTime }: ModalTimer) {
+export default function Timer({ remainingTime }: TimerProps) {
     const t = useTranslations('Sidebar.Timer');
-    const { hours, minutes, seconds } = remainingTime;
+    const { days, hours, minutes, seconds } = remainingTime;
 
     return (
-        <div className="text-sm lg:text-base font-medium text-neutral-500 dark:text-neutral-300">
-            <span>{t('textOffer')}</span>
+        <div aria-label="Timer">
+            <span className="text-sm lg:text-base font-medium text-neutral-500 dark:text-neutral-300">{t('textOffer')}</span>
+            {days !== 0 && (
+                <span className="inline-flex ml-1.5 py-px px-1.5 text-[13px] font-medium text-green text-nowrap rounded-full bg-green/10">
+                    {days} {t('days')}
+                </span>
+            )}
             {hours !== 0 && (
-                <span className="inline-flex ml-1.5 text-nowrap text-[13px] text-green font-medium py-0.5 px-2 rounded-full bg-green/10">
+                <span className="inline-flex ml-1.5 py-px px-1.5 text-[13px] font-medium text-green text-nowrap rounded-full bg-green/10">
                     {hours} {t('hours')}
                 </span>
             )}
-            <span className="inline-flex ml-0.5 text-nowrap text-[13px] text-green font-medium py-0.5 px-2 rounded-full bg-green/10">
-                {minutes} {t('minutes')}
-            </span>
-            <span className="inline-flex ml-0.5 text-nowrap text-[13px] text-green font-medium py-0.5 px-2 rounded-full bg-green/10">
+            {minutes !== 0 && (
+                <span className="inline-flex ml-0.5 py-px px-1.5 text-[13px] font-medium text-green text-nowrap rounded-full bg-green/10">
+                    {minutes} {t('minutes')}
+                </span>
+            )}
+            <span className="inline-flex ml-0.5 py-px px-1.5 text-[13px] font-medium text-green text-nowrap rounded-full bg-green/10">
                 {seconds} {t('seconds')}
             </span>
         </div>
