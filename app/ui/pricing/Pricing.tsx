@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
 import { IconCheck } from "@/app/lib/icons/SocialIcons";
-import { PaymentsProps } from '@/app/lib/definitions/definitions';
+import { PricingProps } from '@/app/lib/definitions/definitions';
 
-export default function Pricing({ payments, showDiscount }: PaymentsProps & { showDiscount: boolean; }) {
+export default function Pricing({ pricing, showDiscount }: PricingProps) {
     const t = useTranslations('Sidebar.Pricing');
-    const { original_price, discounted_price, discount_rate } = payments;
+    const { original_price, discounted_price, discount_rate } = pricing;
 
     return (
         <div className="grid grid-cols-[_1fr,_1fr]">

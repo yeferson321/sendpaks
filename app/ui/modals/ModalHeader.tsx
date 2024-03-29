@@ -1,12 +1,7 @@
 'use client'
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-
-type ModalProps = {
-    children: React.ReactNode;
-    isOpen: boolean;
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { ModalProps } from '@/app/lib/definitions/definitions';
 
 export default function ModalHeader({ children, isOpen, setIsOpen }: ModalProps) {
     return (
@@ -19,7 +14,7 @@ export default function ModalHeader({ children, isOpen, setIsOpen }: ModalProps)
                     <div className="absolute inset-0 overflow-hidden">
                         <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full">
                             <Transition.Child as={Fragment} enter="transform transition ease-in-out duration-200" enterFrom="translate-x-full" enterTo="translate-x-0" leave="transform transition ease-in-out duration-200" leaveFrom="translate-x-0" leaveTo="translate-x-full">
-                                <Dialog.Panel className="pointer-events-auto w-[270px]">
+                                <Dialog.Panel className="pointer-events-auto">
                                     {children}
                                 </Dialog.Panel>
                             </Transition.Child>

@@ -22,6 +22,11 @@
   "LanguageModal": {
     "chooseLanguage": "Elige un idioma"
   },
+
+  "Profile": {
+    "totalLikes": "{value, number}"
+  },
+
   "Sidebar": {
     "Timer": {
       "textOffer": "¡Oferta única! ⏳ Descuento del 70% válido por",

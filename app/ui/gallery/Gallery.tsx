@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import Multimedia from '../multimedia/Multimedia';
@@ -6,13 +6,113 @@ import { CardsProps } from '@/app/lib/definitions/definitions';
 import { useState } from 'react';
 import { copyUrlShare } from '@/app/lib/utils/copyUrlShare';
 import ModalOpcion from '../modals/ModalOpcion';
+import { IconArchive, IconAudio, IconImage, IconVideo } from '@/app/lib/icons/SocialIcons';
 
-export default function Cards({ userPosts }: CardsProps) {
+type GalleryProps = {
+    media: {
+        url: string;
+        type: string;
+        duration?: string;
+    }[]
+}
+
+export default function Gallery({ media }: GalleryProps) {
     //const [showAlert, setShowAlert] = useState(false);
-
+    const getIconByType = (type: string) => {
+        switch (type) {
+            case 'mp4':
+                return <IconVideo strokeWidth={2} className="w-6 h-6 stroke-white dark:stroke-white" />;
+            case 'webp':
+                return <IconImage strokeWidth={2} className="w-6 h-6 stroke-white dark:stroke-white" />;
+            case 'mp3':
+                return <IconAudio strokeWidth={2} className="w-6 h-6 stroke-white dark:stroke-white" />;
+            case 'docx':
+                return <IconArchive strokeWidth={2} className="w-6 h-6 stroke-white dark:stroke-white" />;
+            default:
+                return null;
+        }
+    };
     return (
         <>
-            {userPosts.map((post, index) => (
+
+            <div className={`grid ${media.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} gap-4`}>
+                {media.map((item, index) => (
+
+                    <div key={index} className="relative w-full max-w-md m-auto ">
+
+                        <img className="w-full h-auto block rounded-2xl object-cover aspect-square" src={item.url} alt="File representation" />
+                        
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                            <div className="flex flex-row items-center space-x-2">
+                                {getIconByType(item.type)}
+                                <p className="text-base font-bold text-white">{item.duration}</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+
+
+                   
+                ))}
+            </div>
+
+    
+
+
+            {/* <div class="video absolute flex flex-row items-center">
+                            <img class="w-7 lg:w-9 xl:w-10 mr-1.5" alt="logo" src="https://unlockt.me/images/play.svg" />
+                            <p class="font-inter font-bold text-white text-sm xs:text-base sm:text-lg xl:text-xl">0:35</p>
+                        </div> 
+                   <div class="contenedor">
+                         <img class="imagen" src={item.url} alt="Descripción de la imagen" />
+                     </div> 
+*/}
+            {/*     {item.type === 'mp4' && (
+                            <div className="video absolute flex flex-row items-center">
+                                <img className="w-7 lg:w-9 xl:w-10 mr-1.5" alt="logo" src="https://unlockt.me/images/play.svg" />
+                                <p className="font-inter font-bold text-white text-sm xs:text-base sm:text-lg xl:text-xl">0:35</p>
+                            </div> 
+                        )} */}
+            {/* 
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="" />
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-3xl" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="" />
+                </div>
+
+            </div> */}
+
+
+            {/*            {userPosts.map((post, index) => (
                 <div key={index} className="px-4 py-[24px] sm:py-4 sm:mt-6 border-b sm:border sm:rounded-xl dark:border-gray-600">
 
                     <div className="flex items-center justify-between">
@@ -69,7 +169,7 @@ export default function Cards({ userPosts }: CardsProps) {
 
                         </div>
 
-                        <button type="button" className="truncate-button overflow-hidden whitespace-nowrap flex items-center bg-blue-500 hover:bg-blue-500/90 text-white text-sm py-2.5 px-4 rounded-lg">
+                        <button type="button" className="truncate-button overflow-hidden whitespace-nowrap flex items-center bg-blue-500 hover:bg-blue-500/90 text-white text-sm py-2.5 px-4 rounded-3xl">
                             <span className="truncate">Suscríbete para ver</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 ml-2 flex-none stroke-slate-100">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
@@ -83,7 +183,7 @@ export default function Cards({ userPosts }: CardsProps) {
                     </div>
 
                 </div>
-            ))}
+            ))} */}
         </>
     )
 };
