@@ -38,11 +38,11 @@ export default function Gallery({ media }: GalleryProps) {
             <div className={`grid ${media.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} gap-4`}>
                 {media.map((item, index) => (
 
-                    <div key={index} className="relative w-full max-w-md m-auto ">
+                    <div key={index} className="relative w-full max-w-md m-auto z-[-1]">
 
                         <img className="w-full h-auto block rounded-2xl object-cover aspect-square" src={item.url} alt="File representation" />
                         
-                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <div className="absolute top-3 right-3">
                             <div className="flex flex-row items-center space-x-2">
                                 {getIconByType(item.type)}
                                 <p className="text-base font-bold text-white">{item.duration}</p>

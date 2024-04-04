@@ -93,7 +93,7 @@ export default async function Home({ params }: { params: { profile: string } }) 
             ],
 
             pricing: {
-                discount_expiry_date: "2024-03-22T20:13:00",
+                discount_expiry_date: "2024-04-22T20:13:00",
                 original_price: 10.99,
                 discounted_price: 2.99,
                 discount_rate: 0.70
@@ -108,37 +108,61 @@ export default async function Home({ params }: { params: { profile: string } }) 
 
     return (
 
-        <div className="mx-auto max-w-[43rem] lg:max-w-[69rem] xl:max-w-[80rem] py-2 px-3 xs:py-0">
-
-            <div className="grid grid-rows-[min-content,_1fr] xs:grid-cols-[min-content,_1fr] gap-y-6 xs:gap-y-0 xl:gap-x-8">
-
-                <Navbar className="xs:hidden" />
-
-                <Header className="hidden xs:block" />
-
-                <div className="lg:flex lg:gap-6 xl:gap-8">
-
-                    <div className="lg:flex-1 lg:min-w-[570px] lg:max-w-[600px] p-3">
+        <>
+            {/* 
+<div class="fixed inset-0 py-4  overflow-auto">
 
 
-                        <Profile stats={response.stats} />
+                <div class="grid grid-rows-[min-content,_1fr] xs:grid-cols-[min-content,_1fr] gap-6 xs:gap-6 xl:gap-8 ">
 
-                        <Gallery media={response.media} />
+                    <Navbar className="xs:hidden" />
 
-                        {/*    <LoadMore /> */}
+                    <Header className="hidden xs:block" />
 
-                        <Footer className="lg:hidden" />
+                    <div className="lg:flex xs:gap-6 xl:gap-8 overflow-auto ">
+
+                        <div className="lg:flex-1 lg:min-w-[570px] lg:max-w-[600px] ">
+
+                            <Gallery media={response.media} />
+                            <Profile stats={response.stats} /> 
+                            <Footer />
+
+                        </div>
+
+                        <Sidebar pricing={response.pricing} className="sticky bottom-2" />
 
                     </div>
 
-                    <Sidebar pricing={response.pricing} className="hidden lg:block lg:flex-1 l" />
+                </div>
+            </div>
+
+         */}
+
+            <div className="mx-auto max-w-[43rem] lg:max-w-[69rem] xl:max-w-[80rem] max-xs:py-2 px-3 xs:px-4">
+
+                <div className="grid grid-rows-[auto,_1fr] xs:grid-cols-[auto,_1fr] max-xs:gap-y-6 xs:gap-x-4">
+
+                    <Navbar className="xs:hidden" />
+
+                    <Header className="hidden xs:block" />
+
+                    <div className="lg:flex lg:gap-x-4">
+
+                        <div className="lg:min-w-[570px] lg:max-w-[620px]">
+
+                            <Gallery media={response.media} />
+                            {/*   <Profile stats={response.stats} /> */}
+                            <Footer />
+
+                        </div>
+
+                        <Sidebar pricing={response.pricing} className="" />
+
+                    </div>
 
                 </div>
 
             </div>
-
-        </div>
-
-
+        </>
     )
 }

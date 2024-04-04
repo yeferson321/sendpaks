@@ -5,100 +5,105 @@ import { HeaderProps } from '@/app/lib/definitions/definitions';
 import { IconApp, IconMark, IconAppSmall, IconQuestion, IconMoon, IconSun, IconUser, IconLock, IconLanguage } from '@/app/lib/icons/SocialIcons';
 import SwitchTheme from '../switchTheme/SwitchTheme';
 import SwitchLanguage from '../switchLanguage/SwitchLanguage';
-import PopoverInfo from '@/app/lib/popovers/PopoverInfo';
+import PopoverAlert from '@/app/lib/popovers/PopoverAlert';
 
 export default function Header({ className, setIsOpen }: HeaderProps) {
     const t = useTranslations('Header');
 
     return (
 
-        <header className={`${className} xs:sticky xs:top-0 w-[270px] xs:w-min xl:w-[260px] h-screen`} aria-label="header">
+        <header className={`${className} xs:sticky xs:top-0 w-[270px] xs:w-min xl:w-60 h-screen `} aria-label="header">
 
-            <div className="h-full p-4 overflow-y-auto shadow-xl xs:shadow-none bg-white dark:bg-base xs:dark:bg-transparent">
+            <div className="h-full max-xs:p-4 xs:py-4 xl:p-4 overflow-y-auto bg-white dark:bg-base xs:dark:bg-transparent">
 
-                <div className="flex xs:hidden xl:flex items-center justify-between">
+                <div className="flex xs:max-xl:hidden items-center justify-between">
                     <Link href="/" className="ml-1">
-                        <span className="sr-only">Sendhud logo</span>
-                        <IconApp className="fill-neutral-500 dark:fill-white" />
+                        <span className="sr-only">SendPaks logo</span>
+                        <IconApp className="fill-light-neutral dark:fill-white" />
                     </Link>
-                    <button type="button" onClick={() => setIsOpen && setIsOpen(false)} className="xl:hidden p-1 rounded-full hover:bg-blue-50 dark:hover:bg-blue-500/5 group">
+                    <button type="button" onClick={() => setIsOpen && setIsOpen(false)} className="xl:hidden p-1 rounded-full hover:bg-light-blue-hover dark:hover:bg-dark-blue-hover group">
                         <span className="sr-only">Close panel</span>
-                        <IconMark strokeWidth={1.5} className="flex-shrink-0 w-7 h-7 stroke-neutral-500 dark:stroke-neutral-300 group-hover:stroke-custom-blue" />
+                        <IconMark strokeWidth={1.5} className="w-7 h-7 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-blue-base" />
                     </button>
                 </div>
 
-                <ul className="mt-5 xs:mt-0 xl:mt-5 space-y-3 text-base font-medium">
-                    <li className="hidden xs:block xl:hidden">
+                <ul className="mt-5 xs:max-xl:mt-0 space-y-3 text-base font-medium">
+                    <li className="hidden xs:max-xl:block">
                         <Link href="/" className="flex items-center justify-center">
-                            <span className="sr-only">Sendhud logo</span>
-                            <IconAppSmall className="flex-shrink-0" />
+                            <span className="sr-only">SendPaks logo</span>
+                            <IconAppSmall />
                         </Link>
                     </li>
                     <li>
-                        <Link href="/" className="xl:w-min flex items-center p-1.5 xl:p-1 rounded-full text-neutral-500 dark:text-neutral-300 hover:text-custom-blue dark:hover:text-custom-blue hover:bg-blue-50 dark:hover:bg-blue-500/5 group">
-                            <IconUser className="flex-shrink-0 w-7 xs:w-8 h-7 xs:h-8 stroke-neutral-500 dark:stroke-neutral-300 group-hover:stroke-custom-blue" />
-                            <span className="ms-3 me-3 text-nowrap xs:hidden xl:block">{t('login')}</span>
+                        <Link href="/" className="xl:w-min flex items-center p-1.5 xl:p-1 rounded-full text-light-neutral dark:text-dark-neutral hover:text-blue-base dark:hover:text-blue-base hover:bg-light-blue-hover dark:hover:bg-dark-blue-hover group">
+                            <IconUser className="w-7 xs:w-8 h-7 xs:h-8 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-blue-base" />
+                            <span className="ms-3 me-3 text-nowrap xs:max-xl:hidden">{t('login')}</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/" className="xl:w-min flex items-center p-1.5 xl:p-1 rounded-full text-neutral-500 dark:text-neutral-300 hover:text-custom-blue dark:hover:text-custom-blue hover:bg-blue-50 dark:hover:bg-blue-500/5 group">
-                            <IconQuestion className="flex-shrink-0 w-7 xs:w-8 h-7 xs:h-8 stroke-neutral-500 dark:stroke-neutral-300 group-hover:stroke-custom-blue" />
-                            <span className="ms-3 me-3 text-nowrap xs:hidden xl:block">{t('support')}</span>
+                        <Link href="/" className="xl:w-min flex items-center p-1.5 xl:p-1 rounded-full text-light-neutral dark:text-dark-neutral hover:text-blue-base dark:hover:text-blue-base hover:bg-light-blue-hover dark:hover:bg-dark-blue-hover group">
+                            <IconQuestion className="w-7 xs:w-8 h-7 xs:h-8 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-blue-base" />
+                            <span className="ms-3 me-3 text-nowrap xs:max-xl:hidden">{t('support')}</span>
                         </Link>
                     </li>
                     <li>
                         <SwitchTheme
-                            buttonClass="w-full xl:w-min flex items-center p-1.5 xl:p-1 rounded-full text-neutral-500 dark:text-neutral-300 hover:text-custom-blue dark:hover:text-custom-blue hover:bg-blue-50 dark:hover:bg-blue-500/5 group"
-                            IconMoon={<IconMoon className="flex-shrink-0 w-7 xs:w-8 h-7 xs:h-8 stroke-neutral-500 dark:stroke-neutral-300 group-hover:stroke-custom-blue" />}
-                            IconSun={<IconSun className="flex-shrink-0 w-7 xs:w-8 h-7 xs:h-8 stroke-neutral-500 dark:stroke-neutral-300 group-hover:stroke-custom-blue" />}
-                            spanClass="ms-3 me-3 text-nowrap xs:hidden xl:block"
+                            buttonClass="w-full xl:w-min flex items-center p-1.5 xl:p-1 rounded-full text-light-neutral dark:text-dark-neutral hover:text-blue-base dark:hover:text-blue-base hover:bg-light-blue-hover dark:hover:bg-dark-blue-hover group"
+                            IconMoon={<IconMoon className="w-7 xs:w-8 h-7 xs:h-8 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-blue-base" />}
+                            IconSun={<IconSun className="w-7 xs:w-8 h-7 xs:h-8 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-blue-base" />}
+                            spanClass="ms-3 me-3 text-nowrap xs:max-xl:hidden"
                         />
                     </li>
                     <li>
                         <SwitchLanguage
-                            buttonClass="w-full xl:w-min flex items-center p-1.5 xl:p-1 rounded-full text-neutral-500 dark:text-neutral-300 hover:text-custom-blue dark:hover:text-custom-blue hover:bg-blue-50 dark:hover:bg-blue-500/5 group"
-                            IconLanguage={<IconLanguage className="flex-shrink-0 w-7 xs:w-8 h-7 xs:h-8 stroke-neutral-500 dark:stroke-neutral-300 group-hover:stroke-custom-blue" />}
-                            spanClass="ms-3 me-3 text-nowrap xs:hidden xl:block"
+                            buttonClass="w-full xl:w-min flex items-center p-1.5 xl:p-1 rounded-full text-light-neutral dark:text-dark-neutral hover:text-blue-base dark:hover:text-blue-base hover:bg-light-blue-hover dark:hover:bg-dark-blue-hover group"
+                            IconLanguage={<IconLanguage className="w-7 xs:w-8 h-7 xs:h-8 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-blue-base" />}
+                            spanClass="ms-3 me-3 text-nowrap xs:max-xl:hidden"
                         />
                     </li>
 
-                    <li className="hidden xs:block xl:hidden">
+                    <li className="hidden xs:max-xl:block">
 
-                        <PopoverInfo
+                        <PopoverAlert
                             buttonClass="p-1.5 rounded-full hover:bg-green/10 group"
-                            IconPopover={<IconLock className="flex-shrink-0 w-8 h-8 stroke-neutral-500 dark:stroke-neutral-300 group-hover:stroke-green" />}
-                            panelClass="absolute z-20 inline-block p-2 ml-3 w-56 rounded-lg bg-base/5 dark:bg-elevated-base">
+                            IconPopover={<IconLock className=" w-8 h-8 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-green" />}
 
-                            <div className="flex items-center justify-between mb-2">
+                            panelClass="fixed z-10 inline-block p-2 ml-4 w-56 rounded-lg bg-base/5 dark:bg-elevated-base xl:dark:bg-base">
 
-                                <span className="mr-3 py-0.5 px-2 rounded-full text-green text-xs font-medium bg-green/10">{t('titleAlert')}</span>
 
-                                <IconLock className="flex-shrink-0 w-5 h-5 stroke-neutral-500 dark:stroke-white" />
+                            <div className="flex items-center justify-between">
+
+                                <span className="mr-3 py-0.5 px-1.5 rounded-full text-xs font-medium text-green bg-green/10">{t('titleAlert')}</span>
+
+                                <IconLock className="w-5 h-5 stroke-light-neutral dark:stroke-white" />
 
                             </div>
 
-                            <p className="text-pretty text-xs text-neutral-500 dark:text-white">
+                            <p className="mt-2 text-pretty text-xs text-light-neutral dark:text-white">
                                 {t('textAlert')}
                             </p>
 
-                        </PopoverInfo>
+
+
+
+                        </PopoverAlert>
 
                     </li>
 
 
                 </ul>
 
-                <div className="xs:hidden xl:block p-3 xl:p-4 mt-8 rounded-lg bg-base/5 dark:bg-elevated-base xl:dark:bg-base" role="alert">
+                <div className="xs:max-xl:hidden p-3 xl:p-4 mt-8 rounded-lg bg-base/5 dark:bg-elevated-base xl:dark:bg-base" role="alert">
 
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between">
 
-                        <span className="mr-3 py-0.5 px-2 rounded-full text-green text-sm font-medium bg-green/10">{t('titleAlert')}</span>
+                        <span className="mr-3 py-0.5 px-2 rounded-full text-sm font-medium text-green bg-green/10">{t('titleAlert')}</span>
 
-                        <IconLock className="flex-shrink-0 w-5 h-5 stroke-neutral-500 dark:stroke-white" />
+                        <IconLock className="w-6 h-6 stroke-light-neutral dark:stroke-white" />
 
                     </div>
 
-                    <p className="text-pretty text-[13px] text-neutral-500 dark:text-white">
+                    <p className="mt-3 text-pretty text-[13px] text-light-neutral dark:text-white">
                         {t('textAlert')}
                     </p>
 
