@@ -12,9 +12,9 @@ export default function Header({ className, setIsOpen }: HeaderProps) {
 
     return (
 
-        <header className={`${className} xs:sticky xs:top-0 w-[270px] xs:w-min xl:w-60 h-screen `} aria-label="header">
+        <header className={`${className} xs:sticky xs:top-0 w-[270px] xs:w-min xl:w-[260px] h-screen`} aria-label="header">
 
-            <div className="h-full max-xs:p-4 xs:py-4 xl:p-4 overflow-y-auto bg-white dark:bg-base xs:dark:bg-transparent">
+            <div className="h-full py-4 px-4 xs:px-0 lg:px-4 overflow-y-auto bg-white dark:bg-base xs:dark:bg-transparent">
 
                 <div className="flex xs:max-xl:hidden items-center justify-between">
                     <Link href="/" className="ml-1">
@@ -103,7 +103,7 @@ export default function Header({ className, setIsOpen }: HeaderProps) {
 
                     </div>
 
-                    <p className="mt-3 text-pretty text-[13px] text-light-neutral dark:text-white">
+                    <p className="mt-3 text-pretty text-sm text-light-neutral dark:text-white">
                         {t('textAlert')}
                     </p>
 

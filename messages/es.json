@@ -29,14 +29,14 @@
 
   "Sidebar": {
     "Timer": {
-      "textOffer": "Descuento del 70% válido por",
+      "textOffer": "Descuento del {value, number, percent} válido solo por dias inependientes de eso por",
       "days": "dias",
       "hours": "horas",
       "minutes": "minutos",
       "seconds": "segundos"
     },
     "Pricing": {
-      "originalPrice": "{price, number, currency}",
+      "originalPrice": "{price, number}",
       "discountedPrice": "{price, number, currency}",
       "discountDescription": "{value, number, percent} de descuento",
       "payToView": "Pagar para ver"

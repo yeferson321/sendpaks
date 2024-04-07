@@ -11,18 +11,15 @@ const config: Config = {
   theme: {
     // The `screens` property in the Tailwind CSS configuration file is used to define custom breakpoints for responsive design.
     screens: {
-      fo: "300px",
-      // => @media (min-width: 300px) { ... }
-
+      ld: "320px",
+      // => @media (min-width: 320px) { ... }
       xs: "550px",
       // => @media (min-width: 550px) { ... }
       ...defaultTheme.screens,
-      
     },
     extend: {
       screens: {
-        ar: "1100px",
-        // => @media (min-width: 1100px) { ... }
+       
       },
       colors: {
         'base': '#121212',
@@ -46,6 +43,9 @@ const config: Config = {
         'dark-border': '#525252',
 
         'blue-base': '#0076ff',
+
+        'blue-hover': '#0065db',
+
         'light-blue-hover': '#eff6ff',
         'dark-blue-hover': '#0076ff0d',
        

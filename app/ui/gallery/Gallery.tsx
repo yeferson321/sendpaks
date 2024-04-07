@@ -30,33 +30,45 @@ export default function Gallery({ media }: GalleryProps) {
                 return <IconArchive strokeWidth={2} className="w-6 h-6 stroke-white dark:stroke-white" />;
             default:
                 return null;
-        }
+        };
     };
+
+    const validcionClass = (media: number) => {
+        if (media === 1) {
+            return 'grid-cols-1 w-[80%] mx-auto'
+        } else if (media === 2) {
+            return 'grid-rows-2 w-[80%] mx-auto'
+        } else {
+            return 'grid-cols-2'
+        };
+    };
+
     return (
         <>
 
-            <div className={`grid ${media.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} gap-4`}>
+            <div className={`grid ${validcionClass(media.length)} gap-4 xs:py-4`}>
+
                 {media.map((item, index) => (
 
-                    <div key={index} className="relative w-full max-w-md m-auto z-[-1]">
+                    <div key={index} className="relative w-full max-w-[600px] m-auto">
 
                         <img className="w-full h-auto block rounded-2xl object-cover aspect-square" src={item.url} alt="File representation" />
-                        
+
                         <div className="absolute top-3 right-3">
                             <div className="flex flex-row items-center space-x-2">
                                 {getIconByType(item.type)}
                                 <p className="text-base font-bold text-white">{item.duration}</p>
                             </div>
                         </div>
-                    
+
                     </div>
 
 
-                   
                 ))}
+
             </div>
 
-    
+
 
 
             {/* <div class="video absolute flex flex-row items-center">

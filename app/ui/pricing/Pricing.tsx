@@ -6,55 +6,20 @@ export default function Pricing({ pricing, showDiscount }: PricingProps) {
     const t = useTranslations('Sidebar.Pricing');
     const { original_price, discounted_price, discount_rate } = pricing;
 
-    /*     <div className="flex">
-    
-        <div className="flex-1">
-    
-            <div className="space-x-2 truncate">
-    
-                <span className=" li text-lg xs:text-xl lg:text-2xl font-semibold xs:font-bold text-neutral-800 dark:text-white">
-                    {t(showDiscount ? 'discountedPrice' : 'originalPrice', { price: showDiscount ? discounted_price : original_price })}
-                </span>
-    
-                {showDiscount && (
-                    <span className="truncate decoration-neutral-500 dark:decoration-neutral-300 text-sm font-normal text-neutral-500 dark:text-neutral-300">
-                        {t('originalPrice', { price: original_price })}
-                    </span>
-                )}
-    
-            </div>
-    
-            <div className="inline-flex items-center">
-                <p className="text-sm font-medium text-nowrap text-neutral-500 dark:text-neutral-300">
-                    {showDiscount ? t('discountDescription', { value: discount_rate }) : 'Pago seguro'}
-                </p>
-                <IconCheck strokeWidth={2.5} className="w-4 h-4 ms-1 stroke-blue-base" />
-            </div>
-    
-        </div>
-    
-        <button type="button" className="flex-1 w-[70px] px-2 rounded-2xl truncate text-base lg:text-sm font-semibold text-white bg-blue-base hover:bg-blue-hover">
-            {t('payToView')}
-        </button>
-    </div>
-     */
-
     return (
 
-        <div className="flex">
+        <div className="grid grid-cols-[_1fr,_1fr]">
 
-            <div className="flex-1 w-[150px] pl-1 pr-3">
+            <div className="max-lg:pl-1 pr-2 lg:pr-4">
 
+                <div className="space-x-2">
 
-
-                <div className="space-x-2 truncate">
-
-                    <span className=" leading-none text-lg xs:text-xl lg:text-2xl font-semibold xs:font-bold text-neutral-800 dark:text-white">
+                    <span className="text-lg xs:text-xl lg:text-2xl font-semibold text-neutral-800 dark:text-white">
                         {t(showDiscount ? 'discountedPrice' : 'originalPrice', { price: showDiscount ? discounted_price : original_price })}
                     </span>
 
                     {showDiscount && (
-                        <span className=" leading-none line-through decoration-neutral-500 dark:decoration-neutral-300 text-sm font-normal text-neutral-500 dark:text-neutral-300">
+                        <span className="line-through decoration-light-neutral dark:decoration-dark-neutral text-sm font-medium text-light-neutral dark:text-dark-neutral">
                             {t('originalPrice', { price: original_price })}
                         </span>
                     )}
@@ -63,7 +28,7 @@ export default function Pricing({ pricing, showDiscount }: PricingProps) {
 
 
                 <div className="flex items-center">
-                    <span className="truncate text-sm font-medium text-neutral-500 dark:text-neutral-300">
+                    <span className="text-nowrap text-sm font-medium text-light-neutral dark:text-dark-neutral">
                         {showDiscount ? t('discountDescription', { value: discount_rate }) : 'Pago seguro'}
                     </span>
                     <IconCheck strokeWidth={2.5} className="w-4 h-4 ms-1 stroke-blue-base" />
@@ -71,9 +36,10 @@ export default function Pricing({ pricing, showDiscount }: PricingProps) {
 
             </div>
 
-            <button type="button" className="flex-1 w-[70px] px-2 rounded-2xl truncate text-base lg:text-sm font-semibold text-white bg-blue-base hover:bg-blue-hover">
+            <button type="button" className="px-2 lg:px-4 rounded-2xl text-nowrap max-xs:truncate text-base font-semibold text-white bg-blue-base hover:bg-blue-hover">
                 {t('payToView')}
             </button>
+
         </div>
     )
 };

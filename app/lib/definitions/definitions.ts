@@ -102,6 +102,7 @@ export type TimeLeftProps = {
 
 export type TimerProps = {
   remainingTime: TimeLeftProps;
+  discountRate: number;
 };
 
 export type PricingProps = {

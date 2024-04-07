@@ -20,16 +20,21 @@ export default function Sidebar({ pricing, className }: SidebarProps) {
   }, []);
 
   return (
-    <aside className={`${className} sticky max-lg:bottom-2 lg:top-0 lg:h-screen`} aria-label="Sidebar">
+    <aside className="sticky max-lg:bottom-3 lg:w-full lg:top-0 lg:h-screen" aria-label="Sidebar">
 
       {/* h-full max-xs:p-4 xs:py-4 xl:p-4 overflow-y-auto bg-white dark:bg-base xs:dark:bg-transparent */}
 
+      <div className="lg:h-full lg:p-4 lg:overflow-y-auto">
 
-      <div className="py-2 px-3 space-y-1.5 rounded-2xl bg-white bg-base/5 dark:bg-base">
+        <div className="p-3 lg:p-4 space-y-1.5 lg:space-y-3 rounded-2xl bg-white bg-base/5 dark:bg-base">
+          
+          {remainingTime.expired && <Timer remainingTime={remainingTime} discountRate={pricing.discount_rate} />}
 
-      {/*   {remainingTime.expired && <Timer remainingTime={remainingTime} />} */}
+          <Pricing showDiscount={remainingTime.expired} pricing={pricing} />
 
-        <Pricing showDiscount={remainingTime.expired} pricing={pricing} />
+        </div>
+
+
 
         {/* 
           <PaymentLogos /> */}
