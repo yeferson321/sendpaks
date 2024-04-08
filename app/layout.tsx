@@ -1,11 +1,13 @@
-export const runtime = 'edge' // 'nodejs' (default) | 'edge'
+
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { locales } from '@/navegación';
 import Providers from "./providers";
-import NotFound from './not-found';
+
 import './globals.css';
+import { notFound } from 'next/dist/client/components/not-found';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +25,7 @@ export default function RootLayout({ children, params: { locale } }: { children:
   const messages = useMessages();
 
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as string)) NotFound();
+  if (!locales.includes(locale as string)) notFound();
 
   return (
     <html lang={locale}>
