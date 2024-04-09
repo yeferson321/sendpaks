@@ -32,7 +32,7 @@
     "Pricing": {
       "originalPrice": "{price, number, currency}",
       "discountedPrice": "{price, number, currency}",
-      "discountDescription": "{value, number, percent} de descuento",
+      "discountDescription": "{value, number, ::%} de descuento",
       "payToView": "Pagar para ver"
     }
   },

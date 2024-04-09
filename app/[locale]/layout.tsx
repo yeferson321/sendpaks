@@ -6,7 +6,8 @@ import { locales } from '@/navegación';
 import Providers from "./providers";
 
 import './globals.css';
-import { notFound } from 'next/dist/client/components/not-found';
+import { notFound } from 'next/navigation';
+
 
 
 const inter = Inter({ subsets: ['latin'] });

@@ -49,6 +49,8 @@ export default async function Home({ params }: { params: { profile: string } }) 
 
     const response = await fetchPosts(params.profile)
 
+    
+
     return (
         <div className="mx-auto max-w-[43rem] lg:max-w-[65rem] xl:max-w-[84rem] max-xs:py-2 px-3 xs:px-4">
 

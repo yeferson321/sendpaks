@@ -1,4 +1,4 @@
-import createMiddleware from "next-intl/middleware";
+import createMiddleware from 'next-intl/middleware';
 import { locales } from './navegación';
 
 export default createMiddleware({
