@@ -1,5 +1,4 @@
-import { locales } from '@/navegación';
-import { useTranslations } from 'next-intl';
+
 import { notFound } from 'next/navigation';
 
 /* import notFound from '../../[...notFound]/not-found'; */
@@ -10,7 +9,14 @@ import { Link, locales } from '../../navegación';
 
 
  */
+
+import {useLocale, useTranslations} from 'next-intl';
+import { locales, redirect } from '@/navegación';
+
 export default function Home({ children, params: { locale } }: { children: React.ReactNode, params: { locale: string } }) {
+
+
+
   /*   const locales:NotFound string[] = ["en", "es", "pt"];
   
     // Validate that the incoming `locale` parameter is valid
@@ -21,10 +27,11 @@ export default function Home({ children, params: { locale } }: { children: React
      */
   /*   const t = useTranslations('Sidebar');
    */
-
-  console.log("Pague", locale)
-
+ 
 /*   if ("es" === locale)  notFound();
+ */
+/* 
+  if (!locales.includes(locale as string)) console.log("redirikeindo");
  */
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

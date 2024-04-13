@@ -12,6 +12,7 @@ export const languages = [
   { language: "Russian", from: "Русский", locale: "ru" },
 ];
 
+export const defaultLocale = "en";
 export const locales = ["en", "es", "pt", "fr", "ar", "zh", "ja", "it", "ru"];
 export const localePrefix = "always"; // Default
 

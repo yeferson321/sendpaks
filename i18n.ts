@@ -4,9 +4,10 @@ import { locales } from "./navegación";
 import { notFound } from "next/navigation";
 
 export default getRequestConfig(async ({ locale }) => {
-  console.log("getRequestConfig", locale);
+  /*   console.log("getRequestConfig", locale); */
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as string)) notFound();
+
+  if (!locales.includes(locale as any)) notFound();
 
   return {
     formats: {

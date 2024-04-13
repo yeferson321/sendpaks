@@ -1,4 +1,4 @@
-import { Link } from '@/navegación';
+import { Link } from "@/navegación";
 
 export default function NotFound() {
     return (
@@ -9,7 +9,7 @@ export default function NotFound() {
                 <p className="mt-6 text-base leading-7 text-neutral-500">Sorry, we couldn’t find the page you’re looking for.</p>
                 <div className="mt-10 flex flex-col gap-6">
                     <Link locale="en" href="/" className="rounded-full whitespace-nowrap px-3.5 py-2.5 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-600 shadow-sm">
-                        Go back 
+                        Go back en pageu
                     </Link>
                     <Link locale="en" href="/support" className="rounded-full whitespace-nowrap px-3.5 py-2.5 text-sm font-semibold text-white bg-neutral-500 hover:bg-neutral-600 shadow-sm">Contact support</Link>
                 </div>

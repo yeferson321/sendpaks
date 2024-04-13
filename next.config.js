@@ -9,6 +9,15 @@ const nextConfig = {
             { protocol: 'https', hostname: "s3.eu-west-1.amazonaws.com" },
         ],
     },
+/*     async redirects() {
+        return [
+            {
+                source: '/:path((?!.*en).*)', // Captura cualquier ruta que contenga "example"
+                destination: '/', // Redirige a esta ruta si se cumple la condición
+                permanent: true,
+            },
+        ]
+    }, */
 }
 
 const withNextIntl = require('next-intl/plugin')();

@@ -6,12 +6,44 @@ import Header from '../../ui/header/Header';
 import Pricing from '@/app/ui/pricing/Pricing';
 import Sidebar from '@/app/ui/Sidebar/Sidebar';
 import Footer from '@/app/ui/footer/Footer';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
     return { title: `OnlyPaks ${params.profile}` };
 };
 
-const fetchPosts = async (idPost: string) => {
+interface MediaItem {
+    url: string;
+    type: 'mp4' | 'docx' | 'mp3' | 'webp'; // Tipos posibles para 'type'
+    duration?: string; // La duración es opcional para algunos tipos de medios
+}
+
+interface Stats {
+    total_videos: number;
+    total_images: number;
+    total_mp3: number;
+    total_docx: number;
+    total_likes: number;
+}
+
+interface Pricing {
+    discount_expiry_date: string; // En formato ISO 8601
+    original_price: number;
+    discounted_price: number;
+    discount_rate: number; // En decimal
+}
+
+interface ApiResponse {
+    status: string;
+    data?: {
+        stats: Stats;
+        media: MediaItem[];
+        pricing: Pricing;
+    };
+}
+
+
+const fetchPosts = async (idPost: string): Promise<ApiResponse> => {
 
     return {
         status: "success",
@@ -41,15 +73,17 @@ const fetchPosts = async (idPost: string) => {
                 discounted_price: 2.99,
                 discount_rate: 0.70
             }
-        } 
+        }
     };
 };
+
 
 export default async function Home({ params }: { params: { profile: string } }) {
 
     const response = await fetchPosts(params.profile)
-
-    
+    if (!response.data) {
+        notFound()
+    }
 
     return (
         <div className="mx-auto max-w-[43rem] lg:max-w-[65rem] xl:max-w-[84rem] max-xs:py-2 px-3 xs:px-4">

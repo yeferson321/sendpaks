@@ -23,7 +23,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 };
 
 export default function RootLayout({ children, params: { locale } }: { children: React.ReactNode, params: { locale: string } }) {
-  const messages = useMessages();
+  const messages =  useMessages();
 
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as string)) notFound();
