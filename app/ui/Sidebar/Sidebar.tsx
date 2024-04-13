@@ -17,7 +17,7 @@ export default function Sidebar({ pricing, className }: SidebarProps) {
       setRemainingTime(countdownTimer(pricing.discount_expiry_date, intervalId));
     }, 1000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [pricing.discount_expiry_date]);
 
   return (
     <aside className="sticky max-lg:bottom-3 lg:w-full lg:top-0 lg:h-screen" aria-label="Sidebar">
