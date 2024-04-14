@@ -14,15 +14,17 @@ export default function middleware(request: NextRequest) {
   const { pathname, origin } = request.nextUrl;
   const regex = new RegExp(`^/(${locales.join('|')})(/.*)?$`);  
 
-  if (pathname === '/') return intlMiddleware(request);
-
-  if (regex.exec(pathname)) return intlMiddleware(request);
+  if (pathname === '/' || regex.test(pathname)) return intlMiddleware(request);
 
   if (!regex.exec(pathname)) {
     const locale = cookies().get('NEXT_LOCALE')?.value || defaultLocale;
-    const newPath = `/${pathname.split('/').filter(Boolean).slice(1).join('/')}`
 
-    return NextResponse.redirect(`${origin}/${locale}${newPath}`)
+    if (/^\/.{0,2}\/.*$/.test(pathname)) {
+      const newPath = pathname.replace(/^\/[^/]+/, '');
+      return NextResponse.redirect(`${origin}/${locale}${newPath}`);
+    } 
+
+    return NextResponse.redirect(`${origin}/${locale}${pathname}`);
   }
 };
 
