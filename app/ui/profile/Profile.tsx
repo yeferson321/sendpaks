@@ -6,7 +6,7 @@ import { SetStateAction, useState } from 'react';
 import { IconVideo, IconImage, IconAudio, IconArchive, IconHeart } from '@/app/lib/icons/SocialIcons';
 import Modal from '../modals/Modal';
 import Pricing from '../pricing/Pricing';
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../bar/Bar';
 /* 
 const platformIcons: SocialIcons = {
     Twitter: <IconTwitter />,

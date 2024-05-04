@@ -1,25 +1,26 @@
 'use client'
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { HeaderProps } from '@/app/lib/definitions/definitions';
+import { SidebarProps } from '@/app/lib/definitions/definitions';
 import { IconApp, IconMark, IconAppSmall, IconQuestion, IconMoon, IconSun, IconUser, IconLock, IconLanguage } from '@/app/lib/icons/SocialIcons';
 import SwitchTheme from '../switchTheme/SwitchTheme';
 import SwitchLanguage from '../switchLanguage/SwitchLanguage';
 import PopoverAlert from '@/app/lib/popovers/PopoverAlert';
+/* import Popover from '../radix-ui/popover/Popover'; */
 
-export default function Header({ className, setIsOpen }: HeaderProps) {
+export default function Sidebar({ className, setIsOpen }: SidebarProps) {
     const t = useTranslations('Header');
 
     return (
 
-        <header className={`${className} xs:sticky xs:top-0 w-[270px] xs:w-min xl:w-[260px] h-screen`} aria-label="header">
+        <aside className={`${className}  h-full  w-[270px] xs:w-min xl:w-[260px] `} aria-label="Sidebar">
 
-            <div className="h-full py-4 px-4 xs:px-0 lg:px-4 overflow-y-auto bg-white dark:bg-base xs:dark:bg-transparent">
+            <div className="sticky top-0  h-screen overflow-y-auto p-4   bg-white dark:bg-base xs:dark:bg-transparent">
 
                 <div className="flex xs:max-xl:hidden items-center justify-between">
                     <Link href="/" className="ml-1">
                         <span className="sr-only">SendPaks logo</span>
-                        <IconApp className="fill-light-neutral dark:fill-white" />
+                        <IconApp />
                     </Link>
                     <button type="button" onClick={() => setIsOpen && setIsOpen(false)} className="xl:hidden p-1 rounded-full hover:bg-light-blue-hover dark:hover:bg-dark-blue-hover group">
                         <span className="sr-only">Close panel</span>
@@ -64,7 +65,32 @@ export default function Header({ className, setIsOpen }: HeaderProps) {
 
                     <li className="hidden xs:max-xl:block">
 
-                        <PopoverAlert
+                      {/*   <Popover side="right" align="start" sideOffset={10} timer={30000} arrowPadding={10} arrowClass="fill-blue-base"
+
+                            IconPopover={
+                                <div className="p-1.5 rounded-full hover:bg-light-blue-hover dark:hover:bg-dark-blue-hover group">
+                                    <IconLock className="w-8 h-8 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-blue-base" />
+                                </div>
+                            }>
+
+                            <div className="max-w-56 p-3 rounded-lg text-sm font-medium text-white bg-blue-base">
+                                <div className="flex items-center justify-between">
+
+                                    <span className="mr-3 py-0.5 px-1.5 rounded-full text-xs font-medium text-green bg-green/10">{t('titleAlert')}</span>
+
+                                    <IconLock className="w-5 h-5 stroke-light-neutral dark:stroke-white" />
+
+                                </div>
+
+                                <p className="mt-2 text-pretty text-xs">
+                                    {t('textAlert')}
+                                </p>
+
+                            </div>
+
+                        </Popover> */}
+
+                        {/* <PopoverAlert
                             buttonClass="p-1.5 rounded-full hover:bg-green/10 group"
                             IconPopover={<IconLock className=" w-8 h-8 stroke-light-neutral dark:stroke-dark-neutral group-hover:stroke-green" />}
 
@@ -86,7 +112,7 @@ export default function Header({ className, setIsOpen }: HeaderProps) {
 
 
 
-                        </PopoverAlert>
+                        </PopoverAlert> */}
 
                     </li>
 
@@ -112,7 +138,7 @@ export default function Header({ className, setIsOpen }: HeaderProps) {
 
             </div>
 
-        </header>
+        </aside>
 
     )
 };

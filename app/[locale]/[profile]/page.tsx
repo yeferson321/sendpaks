@@ -1,119 +1,156 @@
 export const runtime = 'edge';
 
 import { Metadata } from 'next';
-import Gallery from '../../ui/gallery/Gallery';
-import Navbar from '../../ui/navbar/Navbar';
-import Profile from '../../ui/profile/Profile'
-import Header from '../../ui/header/Header';
+import Gallery from '@/app/[locale]/[profile]/@gallery/page';
+import Navbar from '@/app/ui/navbar/Navbar';
+import Sidebar from '@/app/ui/sidebar/Sidebar';
 import Pricing from '@/app/ui/pricing/Pricing';
-import Sidebar from '@/app/ui/Sidebar/Sidebar';
 import Footer from '@/app/ui/footer/Footer';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
+import NotFound from './not-found'
+import Bar from '@/app/ui/bar/Bar';
+import PaymentLogos from '@/app/ui/paymentLogos/PaymentLogos';
+import { IconVideo } from '@/app/lib/icons/SocialIcons';
+import Stats from '@/app/ui/stats/Stats';
+import { ApiResponse } from '@/app/lib/definitions/definitions';
+
+
+
 
 export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
     return { title: `OnlyPaks ${params.profile}` };
 };
 
-interface MediaItem {
-    url: string;
-    type: 'mp4' | 'docx' | 'mp3' | 'webp'; // Tipos posibles para 'type'
-    duration?: string; // La duración es opcional para algunos tipos de medios
-}
+async function fetchPosts(postId: string): Promise<ApiResponse> {
 
-interface Stats {
-    total_videos: number;
-    total_images: number;
-    total_mp3: number;
-    total_docx: number;
-    total_likes: number;
-}
+    const res = await fetch(`http://localhost:3000/api/posts/${postId}`,
 
-interface Pricing {
-    discount_expiry_date: string; // En formato ISO 8601
-    original_price: number;
-    discounted_price: number;
-    discount_rate: number; // En decimal
-}
-
-interface ApiResponse {
-    status: string;
-    data?: {
-        stats: Stats;
-        media: MediaItem[];
-        pricing: Pricing;
-    };
-}
-
-
-const fetchPosts = async (idPost: string): Promise<ApiResponse> => {
-
-    return {
-        status: "success",
-        data: {
-            stats: {
-                total_videos: 3,
-                total_images: 5,
-                total_mp3: 1,
-                total_docx: 1,
-                total_likes: 226,
+        {
+            cache: 'no-store',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': `${process.env.DATA_API_KEY}`
             },
-            media: [
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Fcmeokrc23.webp", type: 'mp4', duration: "0:90" },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Fcvwevrwe.webp", type: 'mp4', duration: "2:50" },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Ferc2r23.webp", type: 'mp4', duration: "1:09" },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Fijeofjwioerofwe.webp", type: 'docx' },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Fmdmfo23d2.webp", type: 'mp3', duration: "4:09" },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Fqmwkl232c.webp", type: 'webp' },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp", type: 'webp' },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frv23rv2rv.webp", type: 'webp' },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Fwevwerv.webp", type: 'webp' },
-                { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Fwver2ed.webp", type: 'webp' }
-            ],
-            pricing: {
-                discount_expiry_date: "2025-04-06T05:40:00",
-                original_price: 10.99,
-                discounted_price: 2.99,
-                discount_rate: 0.70
-            }
-        }
-    };
-};
+        });
 
+    if (!res.ok) throw new Error('Failed to fetch data');
+
+    return res.json();
+};
 
 export default async function Home({ params }: { params: { profile: string } }) {
 
     const response = await fetchPosts(params.profile)
-    if (!response.data) {
-        notFound()
-    }
 
+    /*     if (!response.data.media) notFound();
+     */
+  
+    console.log("params", params.profile)
+    
     return (
-        <div className="mx-auto max-w-[43rem] lg:max-w-[65rem] xl:max-w-[84rem] max-xs:py-2 px-3 xs:px-4">
+        <div className="h-full mx-auto max-w-[43rem] lg:max-w-[65rem] xl:max-w-[84rem] px-4">
 
-            <div className="grid grid-rows-[_1fr,auto] xs:grid-cols-[_1fr,auto] max-xs:gap-y-6 xs:gap-x-4">
+
+
+     
+            <div className="h-full grid max-xs:grid-rows-[auto,_1fr] xs:grid-cols-[auto,_1fr] max-xs:gap-y-4 xs:gap-x-6">
 
                 <Navbar className="xs:hidden" />
 
-                <Header className="hidden xs:block" />
+                <Sidebar className="hidden xs:block" />
 
-                <div className="lg:grid lg:grid-cols-[auto,_1fr] lg:gap-x-4">
+                {response.data.media ?
 
-                    <div className="lg:min-w-[450px] lg:max-w-[600px]">
+                    <div className="flex lg:gap-x-6  ">
 
-                        <Gallery media={response.data.media} />
+                        <div className="flex-1 lg:min-w-[450px] ">
 
-                        {/*   <Profile stats={response.stats} /> */}
+                            <Stats stats={response.data.stats}/>
 
-                        <Footer />
+                            <Gallery media={response.data.media} />
+
+                            <PaymentLogos></PaymentLogos>
+
+                            <Bar pricing={response.data.pricing} className="lg:hidden" />
+
+                            <Footer />
+
+                        </div>
+
+                        <Bar pricing={response.data.pricing} className="hidden lg:block flex-1 lg:max-w-[400px]" />
 
                     </div>
 
-                    <Sidebar pricing={response.data.pricing} />
+                    /*  <div className="h-full grid lg:grid-cols-[auto,_1fr] lg:gap-x-4">
+ 
+                         <div className="bg-red-300 h-screen lg:min-w-[450px] lg:max-w-[600px]">
+                                          
+                             <Gallery media={response.data.media} />
+ 
+                             <Bar pricing={response.data.pricing} />
+           
+                         </div>
+ 
+ 
+                         <Footer />
+                       
+                     </div> */
 
-                </div>
+                    :
+
+                    <main className="h-full grid place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+                        <div className="text-center">
+                            <p className="text-base font-semibold text-indigo-600">404</p>
+                            <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Page not found</h1>
+                            <p className="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking for.</p>
+                            <div className="mt-10 flex items-center justify-center gap-x-6">
+                                <a href="#" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Go back home</a>
+                                <a href="#" className="text-sm font-semibold text-gray-900">Contact support <span aria-hidden="true">&rarr;</span></a>
+                            </div>
+                        </div>
+                    </main>
+
+                }
+
+
 
             </div>
 
         </div>
+
+
+        /*       <div className=" mx-auto max-w-[43rem] lg:max-w-[65rem] xl:max-w-[84rem] max-xs:p-3 xs:px-4">
+      
+                  <div className="bg-red-200  xs:grid-cols-[auto,_1fr] max-xs:gap-y-6 xs:gap-x-4">
+      
+                     <Navbar className="xs:hidden" /> 
+      
+                      <Header className="hidden xs:block" />
+      
+                      {response.data.media ?
+      
+                          <div className="lg:grid lg:grid-cols-[auto,_1fr] lg:gap-x-4">
+      
+                              <div className=" lg:min-w-[450px] lg:max-w-[600px]">
+      
+                                  <Gallery media={response.data.media} />
+      
+                                  <Footer />
+      
+      
+                              </div>
+      
+      
+                              <Sidebar pricing={response.data.pricing} />
+      
+                          </div>
+      
+                          :
+      
+                          <NotFound />
+                      }
+                  </div>
+      
+              </div> */
     )
 }

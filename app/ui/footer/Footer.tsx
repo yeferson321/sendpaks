@@ -3,8 +3,10 @@ import { useTranslations } from 'next-intl';
 import { ClassProps } from '@/app/lib/definitions/definitions';
 
 export default function Footer({ className }: ClassProps) {
+
   const t = useTranslations('Footer');
-  const getCurrentYear = () => new Date().getFullYear();;
+  const getCurrentYear = () => new Date().getFullYear();
+
   {/* <footer classNameName={`${classNameName}`}>
       <ul classNameName="flex justify-evenly text-xs font-medium text-neutral-500 dark:text-neutral-300">
         <li>
@@ -24,11 +26,8 @@ export default function Footer({ className }: ClassProps) {
 
   return (
 
+    <footer className={`${className} mx-auto w-full p-3 xs:p-4 my-3`}>
 
-
-    <footer className={`${className}`}>
-
-      <div className="mx-auto w-full p-3 xs:p-4 my-3">
 
         <div className="grid grid-cols-2 gap-4">
 
@@ -92,7 +91,7 @@ export default function Footer({ className }: ClassProps) {
             
           </div>
         </div>
-      </div>
+      
     </footer>
 
   )

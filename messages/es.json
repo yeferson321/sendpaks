@@ -27,9 +27,17 @@
     "totalLikes": "{value, number}"
   },
 
+
+
+  "Stats": {
+    "clipboardSuccessMessage": "¡El enlace se copió al portapapeles!"
+  },
+
+
+
   "Sidebar": {
     "Timer": {
-      "textOffer": "Descuento del {value, number, percent} válido solo por dias inependientes de eso por",
+      "textOffer": "Descuento válido solo por",
       "days": "dias",
       "hours": "horas",
       "minutes": "minutos",

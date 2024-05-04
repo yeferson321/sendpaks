@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation';
 
 
 
+
 const inter = Inter({ subsets: ['latin'] });
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
@@ -23,17 +24,17 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 };
 
 export default function RootLayout({ children, params: { locale } }: { children: React.ReactNode, params: { locale: string } }) {
-  const messages =  useMessages();
+  const messages = useMessages();
 
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as string)) notFound();
 
   return (
-    <html lang={locale}>
-      <body className={`bg-white dark:bg-body ${inter.className}`}>
+    <html lang={locale} suppressHydrationWarning className="h-full">
+      <body className={`bg-white dark:bg-body h-full ${inter.className}`}>
         <NextIntlClientProvider locale={locale} messages={messages} formats={{ number: { currency: { currencyDisplay: "code", style: "currency", currency: "USD" } } }}>
           <Providers>
-            {children}
+              {children}
           </Providers>
         </NextIntlClientProvider>
       </body>
