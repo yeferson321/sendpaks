@@ -28,6 +28,14 @@
   },
 
 
+  "Navigation": {
+    "all": "Todo",
+    "videos": "Videos",
+    "images": "Imagenes",
+    "audios": "Audios",
+    "files": "Archivos"
+  },
+
 
   "Stats": {
     "clipboardSuccessMessage": "¡El enlace se copió al portapapeles!"

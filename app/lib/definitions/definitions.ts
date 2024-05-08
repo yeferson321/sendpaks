@@ -8,10 +8,12 @@ export type StatsProps = {
   };
 };
 
+export type TypeFile = 'video' | 'image' | 'audio' | 'file';
+
 export type MediaProps = {
   media: {
     url: string;
-    type: "video" | "image" | "audio" | "file";
+    type: TypeFile;
     duration?: string;
   }[];
 };
