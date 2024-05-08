@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import { IconCheck } from "@/app/lib/icons/SocialIcons";
 import { PricingProps } from '@/app/lib/definitions/definitions';
 
-export default function Pricing({ pricing, showDiscount }: PricingProps) {
+export default function Pricing({ pricing, showDiscount }: PricingProps & {showDiscount: boolean} ) {
     const t = useTranslations('Sidebar.Pricing');
     const { original_price, discounted_price, discount_rate } = pricing;
 
