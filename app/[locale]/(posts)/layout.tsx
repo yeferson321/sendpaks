@@ -1,7 +1,7 @@
 import Navbar from "@/app/ui/navbar/Navbar";
 import Sidebar from "@/app/ui/sidebar/Sidebar";
 
-export default function RootLayout({ children, params: { locale } }: { children: React.ReactNode, params: { locale: string } }) {
+export default function RootLayout({ children}: { children: React.ReactNode }) {
 
     return (
         <div className="h-full mx-auto max-w-[43rem] lg:max-w-[65rem] xl:max-w-[84rem] px-4">
@@ -19,4 +19,4 @@ export default function RootLayout({ children, params: { locale } }: { children:
         </div>
     )
 
-}    
+}

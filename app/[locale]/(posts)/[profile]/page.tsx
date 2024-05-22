@@ -12,12 +12,18 @@ import Bar from '@/app/ui/bar/Bar';
 import PaymentLogos from '@/app/ui/paymentLogos/PaymentLogos';
 import { IconVideo } from '@/app/lib/icons/SocialIcons';
 import Stats from '@/app/ui/stats/Stats';
-import { ApiResponse } from '@/app/lib/definitions/definitions';
+import { ApiResponse, MediaProps } from '@/app/lib/definitions/definitions';
 import Navegation from '@/app/ui/navigation/Navigation';
+/* import Gallery from './@gallery/[type]/page'; */
+import Navigation from '@/app/ui/navigation/Navigation';
+import { updateHola } from '@/app/lib/utils/estadoglobal';
 
-
-
-
+/* import TypeGallery from './type/page' */
+/* import TypeGaller from './@gallery/page'
+ */
+/* 
+import TypeGaller from '@/app/[locale]/(posts)/[profile]/@galley/[type]/page';
+ */
 export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
     return { title: `OnlyPaks ${params.profile}` };
 };
@@ -39,32 +45,47 @@ async function fetchPosts(postId: string): Promise<ApiResponse> {
     return res.json();
 };
 
-export default async function Home({ params }: { params: { type: string, profile: string } }) {
-
-     
+export default async function Home({ params }: { params: { profile: string, type: string } }) {
 
     const response = await fetchPosts(params.profile)
+
+    updateHola(response.data.media)
 
     /*     if (!response.data.media) notFound();
      */
 
-
+    /*   console.log('holass', params)
+   */
     return (
 
 
         <>
 
-          
+
             {response.data.media ?
 
                 <div className="flex lg:gap-x-6  ">
 
                     <div className="flex-1 lg:min-w-[450px] ">
+
                         <h2 className="text-resd-300">{params.type}</h2>
+
                         <Stats stats={response.data.stats} />
 
-                        {/*   <Gallery media={response.data.media} />
+                        <Navigation media={response.data.media}></Navigation>
+
+
+                {/*         <TypeGaller params={{
+                            profile: params.profile,
+                            type: params.type,
+                       
+                        }} ></TypeGaller>
  */}
+
+                        {/* 
+                        <Gallery params={{type: ''}} ></Gallery>
+                         */}
+
                         <PaymentLogos></PaymentLogos>
 
                         <Bar pricing={response.data.pricing} className="lg:hidden" />

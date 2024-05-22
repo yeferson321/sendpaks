@@ -6,10 +6,12 @@ import { IconApp, IconEllipsis, IconUser } from '@/app/lib/icons/SocialIcons';
 import ModalSidebar from '../modals/ModalSidebar';
 import Header from '../sidebar/Sidebar';
 import { Popover } from '@headlessui/react';
-
+/* import { useAppSelector } from '@/app/lib/redux/hooks';
+ */
 export default function Navbar({ className }: ClassProps) {
   const [isOpen, setIsOpen] = useState(false);
-
+/*   const hola = useAppSelector(state => state.counterReduce.media)
+ */
   return (
     <>
       <nav className={`${className}`} aria-label="nav">

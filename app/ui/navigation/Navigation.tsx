@@ -5,24 +5,19 @@ import { useTranslations } from 'next-intl';
 import { MediaProps, TypeFile } from '@/app/lib/definitions/definitions';
 import { IconSquares } from '@/app/lib/icons/SocialIcons';
 import { IconByType } from '../iconByType/IconByType';
+import { useRouter,usePathname } from 'next/navigation'
+ 
 
-const media: MediaProps["media"] = [
-    { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp", type: "image" },
-    { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp", type: "image" },
-    { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp", type: "video", duration: "1:90" },
-    { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp", type: "image" },
-    { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp", type: "file" },
-    { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp", type: "video", duration: "1:90" },
-    { url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp", type: "audio" }
-];
-
-export default function Navigation() {
+export default function Navigation({media}:  MediaProps) {
+    const pathname = usePathname()
     const { profile, type } = useParams();
+    const router = useRouter()
     const t = useTranslations('Navigation');
     const typeOrder: TypeFile[] = ['video', 'image', 'audio', 'file'];
     const uniqueTypes = typeOrder.filter(type => media.some(item => item.type === type));
 
-
+/*     console.log("pathname", pathname)
+ */
     const getTranslationsByType: Record<TypeFile, string> = {
         video: t('videos'),
         image: t('images'),
@@ -39,13 +34,13 @@ export default function Navigation() {
 
                 <li className="w-full">
 
-                    <Link href={`/${profile}`} className={`w-full h-12 inline-flex items-center justify-center border-t ${!type ? 'border-blue-base dark:border-blue-base' : 'hover:bg-blue-base/5'}`}>
+                    <button onClick={()=> router.replace(`/${profile}`)} className={`w-full h-12 inline-flex items-center justify-center border-t ${!type ? 'border-blue-base dark:border-blue-base' : 'hover:bg-blue-base/5'}`}>
 
                         <IconSquares className={`w-7 h-7 ${!type ? 'stroke-blue-base' : 'stroke-light-neutral dark:stroke-dark-neutral'}`} />
 
                         <span className="max-xl:hidden xl:ms-3">{t('all')}</span>
 
-                    </Link>
+                    </button>
 
                 </li>
 

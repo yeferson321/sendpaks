@@ -23,28 +23,15 @@ export async function GET(
       total_likes: 460000,
     },
     media: [
-      {
-        url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp",
-        type: "image",
-       
-      },
-      {
-        url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp",
-        type: "video",
-        duration: "1:90",
-      },
-      {
-        url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp",
-        type: "video",
-        duration: "1:90",
-      },
-      {
-        url: "https://blur.onlypaks.com/blur%2Fvanredesenfo%2Frlwmrlv2.webp",
-        type: "video",
-        duration: "1:90",
-      },
-      
+      { url: "https://pub-7b61669726e74ed8854d3eec2863a582.r2.dev/blur/vanredesenfo/cmeokrc23.webp", type: "image" },
+      { url: "https://pub-7b61669726e74ed8854d3eec2863a582.r2.dev/blur/vanredesenfo/cmeokrc23.webp", type: "image" },
+      { url: "https://pub-7b61669726e74ed8854d3eec2863a582.r2.dev/blur/vanredesenfo/cmeokrc23.webp", type: "video", duration: "1:90" },
+      { url: "https://pub-7b61669726e74ed8854d3eec2863a582.r2.dev/blur/vanredesenfo/cmeokrc23.webp", type: "image" },
+      { url: "https://pub-7b61669726e74ed8854d3eec2863a582.r2.dev/blur/vanredesenfo/cmeokrc23.webp", type: "file" },
+      { url: "https://pub-7b61669726e74ed8854d3eec2863a582.r2.dev/blur/vanredesenfo/cmeokrc23.webp", type: "video", duration: "1:90" },
+      { url: "https://pub-7b61669726e74ed8854d3eec2863a582.r2.dev/blur/vanredesenfo/cmeokrc23.webp", type: "audio" }
     ],
+    
     pricing: {
       discount_expiry_date: "2024-04-30T05:40:00",
       original_price: 10.99,
