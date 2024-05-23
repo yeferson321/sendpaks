@@ -17,6 +17,7 @@ import Navegation from '@/app/ui/navigation/Navigation';
 /* import Gallery from './@gallery/[type]/page'; */
 import Navigation from '@/app/ui/navigation/Navigation';
 import { updateHola } from '@/app/lib/utils/estadoglobal';
+import Gallery from '@/app/ui/gallery/Gallery';
 
 /* import TypeGallery from './type/page' */
 /* import TypeGaller from './@gallery/page'
@@ -50,6 +51,8 @@ export default async function Home({ params }: { params: { profile: string, type
     const response = await fetchPosts(params.profile)
 
     updateHola(response.data.media)
+    
+    console.log("defaul")
 
     /*     if (!response.data.media) notFound();
      */
@@ -82,9 +85,9 @@ export default async function Home({ params }: { params: { profile: string, type
                         }} ></TypeGaller>
  */}
 
-                        {/* 
-                        <Gallery params={{type: ''}} ></Gallery>
-                         */}
+                        
+                        <Gallery media={response.data.media}></Gallery>
+                        
 
                         <PaymentLogos></PaymentLogos>
 

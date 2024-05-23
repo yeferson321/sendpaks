@@ -16,5 +16,5 @@ export default function TypeGaller({ params }: { params: { profile: string, type
     console.log('Gallery type:', params)
 
 
-    return <Gallery media={media} params={params} />
+    return <></>
 }

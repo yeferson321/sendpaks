@@ -20,10 +20,10 @@ export default function Gallery({ media, params }: {
         url: string;
         type: TypeFile;
         duration?: string | undefined;
-    }[], params: { profile: string, type: string, modal: string }
+    }[], params?: { profile: string, type: string, modal: string }
 }) {
 
-    const { type, modal } = useParams()
+    const { type, modal, profile } = useParams()
 
     const filteredMedia = type ? media.filter(item => item.type === type) : media;
 
@@ -41,7 +41,7 @@ export default function Gallery({ media, params }: {
 
             {filteredMedia.map((media, index) => (
 
-                <Link key={index} href={`/${params.profile}/${params.type}/1234`} className="relative rounded-2xl aspect-square overflow-hidden">
+                <Link key={index} href={`/${profile}/${type}/1234`} className="relative rounded-2xl aspect-square overflow-hidden">
 
                     <Image fill src={media.url} alt="File representation" quality={80} priority={true} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk4AIAABAADApMaRMAAAAASUVORK5CYII=" />
 
@@ -49,7 +49,7 @@ export default function Gallery({ media, params }: {
 
                         <div className="inline-flex items-center">
                             
-                            {`/${params.type}/12341`}
+                            {`/${type}/12341`}
 
                             <IconByType type={media.type} strokeWidth={2} className="w-6 h-6 stroke-white" />
 
