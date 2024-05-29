@@ -1,4 +1,3 @@
-
 import { Metadata } from 'next';
 /* import Gallery from '@/app/ui/gallery/Gallery'; */
 import Navbar from '@/app/ui/navbar/Navbar';
