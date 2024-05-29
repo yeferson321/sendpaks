@@ -1,3 +1,42 @@
+export type StatsProps = {
+  stats: {
+    total_videos?: number;
+    total_images?: number;
+    total_audios?: number;
+    total_files?: number;
+    total_likes?: number;
+  };
+};
+
+export type TypeFile = 'video' | 'image' | 'audio' | 'file';
+
+export type MediaProps = {
+  media: {
+    url: string;
+    id: number;
+    type: TypeFile;
+    duration?: string;
+  }[];
+};
+
+export type PricingProps = {
+  pricing: {
+    discount_expiry_date?: string;
+    original_price: number;
+    discounted_price?: number;
+    discount_rate?: number;
+  };
+};
+
+export type ApiResponse = {
+  status: string;
+  data: {
+    stats: StatsProps["stats"];
+    media: MediaProps["media"];
+    pricing: PricingProps["pricing"];
+  };
+};
+
 export type IconsProps = {
   strokeWidth?: string | number | undefined;
   className?: string | undefined;
@@ -11,7 +50,7 @@ export type ClassProps = {
   className?: React.HTMLAttributes<HTMLSpanElement>["className"];
 };
 
-export type HeaderProps = {
+export type SidebarProps = {
   className?: ClassProps["className"];
   setIsOpen?: IsOpenProps["setIsOpen"];
 };
@@ -25,44 +64,12 @@ export type ModalProps = {
   isOpen: boolean;
   setIsOpen: IsOpenProps["setIsOpen"];
 };
-/* 
-export type ProfileProps = {
-  userData: {
-    verified: boolean;
-    fullName: string;
-    userName: string;
-    profilePictureUrl: string;
-    bannerPictureUrl: string;
-    description: string;
-    country: string;
-    socialLinks: { platform: string; url: string }[];
-    userRank: number;
-    totalLikes: number;
-    totalPosts: number;
-  };
-}; */
 
-export type CardsProps = {
-  userPosts: {
-    idPost: string;
-    verified: boolean;
-    fullName: string;
-    userName: string;
-    profilePictureUrl: string;
-    description: string;
-    multimedia: { type: string; url: string }[];
-    totalLikes: number;
-    totalComments: number;
-  }[];
+export type PopoveProps = {
+  event?: () => void;
+  timer?: number;
+  children: React.ReactNode;
 };
-
-/* export type SocialIcons = {
-  Twitter: JSX.Element;
-  Facebook: JSX.Element;
-  Instagram: JSX.Element;
-  Youtube: JSX.Element;
-  Tiktok: JSX.Element;
-}; */
 
 export type LanguageProps = {
   buttonClass: React.ButtonHTMLAttributes<HTMLButtonElement>["className"];
@@ -77,17 +84,14 @@ export type ThemeProps = {
   IconSun: JSX.Element;
 };
 
-
-
-
 export type DiscountProps = {
-  discount_expiry_date: string;
+  discount_expiry_date?: string;
   original_price: number;
-  discounted_price: number;
-  discount_rate: number;
+  discounted_price?: number;
+  discount_rate?: number;
 };
 
-export type SidebarProps = {
+export type BarProps = {
   pricing: DiscountProps;
   className?: ClassProps["className"];
 };
@@ -102,10 +106,11 @@ export type TimeLeftProps = {
 
 export type TimerProps = {
   remainingTime: TimeLeftProps;
-  discountRate: number;
+  discountRate?: number;
 };
 
-export type PricingProps = {
+/* export type PricingProps = {
   pricing: DiscountProps;
   showDiscount: boolean;
 };
+ */

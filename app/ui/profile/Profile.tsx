@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SetStateAction, useState } from 'react';
 /* import { ProfileProps, SocialIcons } from '@/app/lib/definitions/definitions'; */
-import { IconVideo, IconImage, IconAudio, IconArchive, IconHeart } from '@/app/lib/icons/SocialIcons';
+import { IconVideo, IconImage, IconAudio, IconFile, IconHeart } from '@/app/lib/icons/SocialIcons';
 import Modal from '../modals/Modal';
 import Pricing from '../pricing/Pricing';
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../bar/Bar';
 /* 
 const platformIcons: SocialIcons = {
     Twitter: <IconTwitter />,
@@ -54,7 +54,7 @@ export default function Profile({ stats }: ProfileProps) {
                 </li>
 
                 <li className="flex items-center text-neutral-500 dark:text-neutral-300">
-                    <IconArchive className="flex-shrink-0 w-5 h-5 stroke-neutral-500 dark:stroke-neutral-300" />
+                    <IconFile className="flex-shrink-0 w-5 h-5 stroke-neutral-500 dark:stroke-neutral-300" />
                     <span className="ms-2">{stats.total_videos}</span>
                 </li>
 

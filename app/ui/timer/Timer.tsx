@@ -10,6 +10,7 @@ export default function Timer({ remainingTime, discountRate }: TimerProps) {
 
             <span className="text-xs lg:text-base font-medium text-light-neutral dark:text-dark-neutral">{t('textOffer', { value: discountRate })}</span>
 
+            <div className="contents">
                 {days !== 0 && (
                     <span className="py-px px-1 text-xs font-medium text-green text-nowrap rounded-full bg-green/10">
                         {days} {t('days')}
@@ -28,7 +29,9 @@ export default function Timer({ remainingTime, discountRate }: TimerProps) {
                 <span className="py-px px-1 text-xs font-medium text-green text-nowrap rounded-full bg-green/10">
                     {seconds} {t('seconds')}
                 </span>
-            
+            </div>
+
+
         </div>
 
     );

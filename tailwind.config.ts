@@ -22,19 +22,15 @@ const config: Config = {
        
       },
       colors: {
-        'base': '#121212',
+        'elevated-base': '#121212',
 
-        'highlight': '#1a1a1a',
-        'press': '#000',
-        
-        'elevated-base': '#242424',
         'elevated-highlight': '#2a2a2a',
         'background-elevated-press': '#000',
         'body': '#0A0A0A',
 
         'elevate-base': '#1f1f1f',
 
-        'green':'#20D27D',
+        'green':'#0BD95D',
 
         'light-neutral': '#737373',
         'dark-neutral': '#d4d4d4',
@@ -48,6 +44,16 @@ const config: Config = {
 
         'light-blue-hover': '#eff6ff',
         'dark-blue-hover': '#0076ff0d',
+
+
+
+
+        
+        'purple-custom': '#8109d0',
+
+
+
+
        
       },
     },

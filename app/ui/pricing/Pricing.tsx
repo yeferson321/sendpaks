@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import { IconCheck } from "@/app/lib/icons/SocialIcons";
 import { PricingProps } from '@/app/lib/definitions/definitions';
 
-export default function Pricing({ pricing, showDiscount }: PricingProps) {
+export default function Pricing({ pricing, showDiscount }: PricingProps & {showDiscount: boolean} ) {
     const t = useTranslations('Sidebar.Pricing');
     const { original_price, discounted_price, discount_rate } = pricing;
 
@@ -14,7 +14,7 @@ export default function Pricing({ pricing, showDiscount }: PricingProps) {
 
                 <div className="space-x-2">
 
-                    <span className="text-lg xs:text-xl lg:text-2xl font-semibold text-neutral-800 dark:text-white">
+                    <span className="text-lg xs:text-xl font-semibold text-neutral-800 dark:text-white">
                         {t(showDiscount ? 'discountedPrice' : 'originalPrice', { price: showDiscount ? discounted_price : original_price })}
                     </span>
 
