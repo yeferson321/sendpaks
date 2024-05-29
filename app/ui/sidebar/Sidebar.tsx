@@ -5,7 +5,6 @@ import { SidebarProps } from '@/app/lib/definitions/definitions';
 import { IconApp, IconMark, IconAppSmall, IconQuestion, IconMoon, IconSun, IconUser, IconLock, IconLanguage } from '@/app/lib/icons/SocialIcons';
 import SwitchTheme from '../switchTheme/SwitchTheme';
 import SwitchLanguage from '../switchLanguage/SwitchLanguage';
-import PopoverAlert from '@/app/lib/popovers/PopoverAlert';
 /* import Popover from '../radix-ui/popover/Popover'; */
 
 export default function Sidebar({ className, setIsOpen }: SidebarProps) {

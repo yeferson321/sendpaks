@@ -8,7 +8,7 @@ export const mediaState = createSlice({
   name: "media",
   initialState,
   reducers: {
-    initMedia: (state) => {
+    initMedia: (state: { media: boolean; }) => {
       initialState.media = state.media
     },
   }, 

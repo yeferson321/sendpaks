@@ -3,6 +3,7 @@ import { StatsProps } from '@/app/lib/definitions/definitions';
 import { copyUrl } from '@/app/lib/utils/copyUrl';
 import { IconVideo, IconImage, IconAudio, IconFile, IconHeart, IconShare, IconInstagram, IconFacebook, IconTwitter, IconOnlyfans, IconSquares, IconCheck } from '@/app/lib/icons/SocialIcons';
 import { Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverPortal } from '../radix-ui/popover/Popover';
+/* import { Popover, PopoverButton, PopoverOverlay, PopoverPanel } from '@headlessui/react' */
 
 export default function Stats({ stats }: StatsProps) {
     const t = useTranslations('Stats');
@@ -21,7 +22,17 @@ export default function Stats({ stats }: StatsProps) {
     }
 
     return (
+
+
         <>
+
+{/*             <Popover className="relative">
+                <PopoverButton className="bg-red-300 p-2">Solutions</PopoverButton>
+              
+                <PopoverPanel anchor={{ to: 'bottom start', gap: '6px', offset: '20px' }} className="flex flex-col bg-blue-500 p-2 [--anchor.padding: 10px] ">
+                    <a href="/analytics">Esto es una prueba de</a>
+                </PopoverPanel>
+            </Popover> */}
 
             <div className="space-y-2 mt-4">
 
@@ -93,9 +104,9 @@ export default function Stats({ stats }: StatsProps) {
                 </div>
 
 
-               
 
-                
+
+
 
             </div>
 
