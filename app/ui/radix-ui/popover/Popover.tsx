@@ -22,7 +22,7 @@ export const Popover = ({ children, timer, event }: PopoveProps) => {
             }, timer);
             return () => clearTimeout(timeout);
         }
-    }, [isOpen]);
+    }, [isOpen, timer, event]);
 
     return (
         <PopoverPrimitive.Root open={isOpen} onOpenChange={() => setIsOpen(!isOpen)} defaultOpen={false}>

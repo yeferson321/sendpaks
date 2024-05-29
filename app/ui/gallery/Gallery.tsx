@@ -68,10 +68,24 @@ export default function Gallery({ media }: {
             {hola().map((media, index) => (
 
                 <Link key={index} href={`/${profile}/${type ?? 'gallery'}/${media.id}`} scroll={false} className="relative rounded-2xl aspect-square overflow-hidden">
-{/* 
-                    <Image fill src={media.url} alt="File representation" quality={80} priority={true} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk4AIAABAADApMaRMAAAAASUVORK5CYII=" />
- */}
-                    <img src={media.url} alt="File representation"></img>
+
+                    <Image 
+                    fill 
+                
+                    src={media.url} 
+                    alt="File representation" 
+                    quality={80} 
+                    priority={true} 
+                    placeholder="blur" 
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk4AIAABAADApMaRMAAAAASUVORK5CYII="
+                    
+                    sizes="(min-width: 808px) 50vw, 100vw"
+                    style={{
+                      objectFit: 'cover',
+                    }}
+                     />
+
+                   {/*  <img src={media.url} alt="File representation"></img> */}
                     <div className="absolute w-full h-full flex justify-center items-center">
 
                         <div className="inline-flex items-center">
