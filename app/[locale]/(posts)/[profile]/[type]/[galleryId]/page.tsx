@@ -1,20 +1,25 @@
 
 import { IconMark } from '@/app/lib/icons/SocialIcons';
-
-
+import Link from 'next/link';
+import Image from 'next/image';
 export default function IDmedia({ params }: { params: { profile: string, type: string, galleryId: string } }) {
 
 
-    console.log("hola como estan")
+    console.log("hola como estan", params.profile)
 
 
     return (
 
         <div className="rounded-lg bg-white dark:bg-red-400">
 
+            <Link href={`/${params.profile}`} scroll={false}>Link del Perfil</Link>
+
             <div className="flex items-center justify-between p-3 md:p-4 border-b border-gray-200 dark:border-neutral-border">
 
+
                 <h3 className="text-red-300 mr-3 text-lg md:text-xl font-medium dark:font-semibold dark:text-white">
+
+
                     El ID es: {params.galleryId}
                 </h3>
 
@@ -25,10 +30,9 @@ export default function IDmedia({ params }: { params: { profile: string, type: s
 
             </div>
 
-            <div className="p-3 md:p-4">
-                La ruta recargada
-            </div>
-            
+     {/*        <Image width={100} height={100} src="https://pub-7b61669726e74ed8854d3eec2863a582.r2.dev/blur/vanredesenfo/cmeokrc23.webp" alt="File representation" quality={100} priority={true} placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk4AIAABAADApMaRMAAAAASUVORK5CYII=" />
+
+ */}
         </div>
 
     )

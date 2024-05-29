@@ -13,6 +13,7 @@ export type TypeFile = 'video' | 'image' | 'audio' | 'file';
 export type MediaProps = {
   media: {
     url: string;
+    id: number;
     type: TypeFile;
     duration?: string;
   }[];

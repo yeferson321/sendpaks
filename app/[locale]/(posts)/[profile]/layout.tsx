@@ -1,24 +1,9 @@
-
-export default async function RootLayout({ children, gallery, modal, params }: { children: React.ReactNode, gallery: React.ReactNode, modal: React.ReactNode, params: { profile: string, type: string } }) {
-
-
+export default function RootLayout({ children, gallery, modal }: { children: React.ReactNode, gallery: React.ReactNode, modal: React.ReactNode }) {
     return (
-
         <>
-
-
-
-          
-                        {children}
-                        {gallery}
-
-                       
-
-
-               
+            {gallery}
+            {modal}
+            {children}
         </>
-
-
     )
-
 }

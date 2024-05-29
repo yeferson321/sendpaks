@@ -1,4 +1,3 @@
-
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
@@ -7,8 +6,6 @@ import Providers from "./providers";
 
 import './globals.css';
 import { notFound } from 'next/navigation';
-
-
 
 
 const inter = Inter({ subsets: ['latin'] });
