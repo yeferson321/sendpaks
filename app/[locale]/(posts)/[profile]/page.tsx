@@ -17,6 +17,7 @@ import Navegation from '@/app/ui/navigation/Navigation';
 /* import Gallery from './@gallery/[type]/page'; */
 import Navigation from '@/app/ui/navigation/Navigation';
 import { updateHola } from '@/app/lib/utils/estadoglobal';
+import Gallery from '@/app/ui/gallery/Gallery';
 
 /* import TypeGallery from './type/page' */
 /* import TypeGaller from './@gallery/page'
@@ -54,8 +55,8 @@ export default async function Home({ params }: { params: { profile: string, type
     /*     if (!response.data.media) notFound();
      */
 
-    /*   console.log('holass', params)
-   */
+    console.log('holass', params.type)
+
     return (
 
 
@@ -75,16 +76,15 @@ export default async function Home({ params }: { params: { profile: string, type
                         <Navigation media={response.data.media}></Navigation>
 
 
-                {/*         <TypeGaller params={{
+                        {/*         <TypeGaller params={{
                             profile: params.profile,
                             type: params.type,
                        
                         }} ></TypeGaller>
  */}
 
-                        {/* 
-                        <Gallery params={{type: ''}} ></Gallery>
-                         */}
+
+                        <Gallery media={response.data.media} ></Gallery>
 
                         <PaymentLogos></PaymentLogos>
 
