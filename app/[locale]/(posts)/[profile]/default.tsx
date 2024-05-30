@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: { params: { profile: string }
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
 
-    const res = await fetch(`${process.env.API_BASE_URL}/api/posts/${postId}`,
+    const res = await fetch(`https://sendpaks-git-testing-yeferson321s-projects.vercel.app/api/posts/${postId}`,
         {
             cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
-                'x-access-token': `${process.env.DATA_API_KEY}`
+                'x-access-token': `123456`
             },
         });
 
