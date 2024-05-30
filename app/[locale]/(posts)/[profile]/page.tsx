@@ -9,6 +9,10 @@ export async function generateMetadata({ params }: { params: { profile: string }
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
 
+    const variable = process.env.API_BASE_URL
+
+    console.log("variable", variable)
+
     const res = await fetch(`https://sendpaks.vercel.app/api/posts/${postId}`,
         {
             cache: 'no-store',

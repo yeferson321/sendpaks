@@ -9,6 +9,10 @@ export async function GET(
 ) {
   const API_TOKEN = headers().get("x-access-token");
 
+  const variable = process.env.API_BASE_URL
+
+  console.log("api response", variable)
+
   if (API_TOKEN !== '123456')
     return NextResponse.json(
       { error: "You may not have the permissions to perform this action." },
