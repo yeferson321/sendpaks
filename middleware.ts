@@ -1,8 +1,8 @@
-/* import createIntlMiddleware from "next-intl/middleware"; */
+import createIntlMiddleware from "next-intl/middleware";
 import { locales, defaultLocale } from "./navegación";
-/* import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers"; */
-/* 
+import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
+
 // Middleware de internacionalización
 const intlMiddleware = createIntlMiddleware({
   locales,
@@ -24,19 +24,4 @@ export default function middleware(request: NextRequest) {
 };
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-}; */
-
-
-import createMiddleware from 'next-intl/middleware';
-
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales,
-  // Used when no locale matches
-  defaultLocale
-});
-
-export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(en|es|pt|fr|ar|zh|ja|it|ru)/:path*']
 };

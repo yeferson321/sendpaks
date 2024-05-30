@@ -1,10 +1,11 @@
-export const runtime = "edge";
 
 import { type NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
 
 export async function GET( request: NextRequest, { params }: { params: { postId: string } } ) {
   const API_TOKEN = headers().get("x-access-token");
+
+  console.log("api", process.env.NEXT_API_KEY)
 
   if (API_TOKEN !== process.env.NEXT_API_KEY)
     return NextResponse.json(

@@ -7,10 +7,14 @@ import { ApiResponse } from '@/app/lib/definitions/definitions';
 import Navigation from '@/app/ui/navigation/Navigation';
 import Gallery from '@/app/ui/gallery/Gallery';
 
-
+export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
+    return { title: `OnlyPaks ${params.profile}` };
+};
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
+
     const res = await fetch(`${process.env.NEXT_BASE_URL}/api/posts/${postId}`,
+
         {
             cache: 'no-store',
             headers: {
@@ -27,6 +31,8 @@ async function fetchPosts(postId: string): Promise<ApiResponse> {
 export default async function Home({ params }: { params: { profile: string, type: string } }) {
 
     const response = await fetchPosts(params.profile)
+
+    console.log("page", process.env.NEXT_ACCESS_TOKEN)
 
     return (
 
