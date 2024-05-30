@@ -13,13 +13,13 @@ export async function generateMetadata({ params }: { params: { profile: string }
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
 
-    const res = await fetch(`http://localhost:3000/api/posts/${postId}`,
+    const res = await fetch(`${process.env.NEXT_BASE_URL}/api/posts/${postId}`,
 
         {
             cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
-                'x-access-token': `${process.env.DATA_API_KEY}`
+                'x-access-token': `${process.env.NEXT_ACCESS_TOKEN}`
             },
         });
 
@@ -32,7 +32,7 @@ export default async function Home({ params }: { params: { profile: string, type
 
     const response = await fetchPosts(params.profile)
 
-    console.log("default", process.env.DATA_API_KEY)
+    console.log("page", process.env.NEXT_ACCESS_TOKEN)
 
     return (
 
