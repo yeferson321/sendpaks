@@ -6,6 +6,8 @@ import { headers } from "next/headers";
 export async function GET( request: NextRequest, { params }: { params: { postId: string } } ) {
   const API_TOKEN = headers().get("x-access-token");
 
+  console.log(API_TOKEN, 'y', process.env.DATA_API_KEY)
+
   if (API_TOKEN !== process.env.DATA_API_KEY)
     return NextResponse.json(
       { error: "You may not have the permissions to perform this action." },
