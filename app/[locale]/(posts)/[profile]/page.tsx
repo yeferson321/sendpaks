@@ -32,7 +32,7 @@ export default async function Home({ params }: { params: { profile: string, type
 
     const response = await fetchPosts(params.profile)
 
-    console.log("page", process.env.DATA_API_KEY)
+    console.log("page", process.env.DATA_API_KEY, response)
 
     return (
 
@@ -43,7 +43,7 @@ export default async function Home({ params }: { params: { profile: string, type
 
                 <div className="flex lg:gap-x-6  ">
 
-                    <div className="flex-1 lg:min-w-[450px] ">
+                    {/* <div className="flex-1 lg:min-w-[450px] ">
 
                         <h2 className="text-resd-300">{params.type}</h2>
 
@@ -62,7 +62,7 @@ export default async function Home({ params }: { params: { profile: string, type
                     </div>
 
                     <Bar pricing={response.data.pricing} className="hidden lg:block flex-1 lg:max-w-[400px]" />
-
+ */}
                 </div>
 
                 :

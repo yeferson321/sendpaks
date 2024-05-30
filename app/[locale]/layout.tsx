@@ -1,11 +1,11 @@
 import { Inter } from 'next/font/google';
-import { NextIntlClientProvider } from 'next-intl';
+/* import { NextIntlClientProvider } from 'next-intl';
 
-import {getMessages} from 'next-intl/server';
+import {getMessages} from 'next-intl/server'; */
  
 /* import { getTranslations } from 'next-intl/server'; */
-import { locales } from '@/navegación';
-
+/* import { locales } from '@/navegación';
+ */
 import { notFound } from 'next/navigation';
 
 import Providers from "./providers";
@@ -25,15 +25,17 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 };
 
 export default async function RootLayout({ children, params: { locale } }: { children: React.ReactNode, params: { locale: string } }) {
-  const messages = await getMessages();
- 
+ /*  const messages = await getMessages();
+  */
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as string)) notFound();
+  /* if (!locales.includes(locale as string)) notFound(); */
+    {/*  <NextIntlClientProvider locale={locale} messages={messages} formats={{ number: { currency: { currencyDisplay: "code", style: "currency", currency: "USD" } } }}> */}
+        {/*   </NextIntlClientProvider> */}
 
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider locale={locale} messages={messages} formats={{ number: { currency: { currencyDisplay: "code", style: "currency", currency: "USD" } } }}>
+     
           <Providers>
 
 
@@ -41,7 +43,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
 
             
           </Providers>
-        </NextIntlClientProvider>
+     
       </body>
     </html>
   )
