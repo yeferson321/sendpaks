@@ -54,8 +54,7 @@ export default function Gallery({ media }: {
         return !typeOrder.some(type => word.includes(type));
     } */
 
-    console.log('filteredMedia', type ?? "es indefinido")
- 
+  
 /*     function generateRandomNumbersString(): string {
         return Array.from({ length: 6 }, () => Math.floor(Math.random() * 10)).join('');
     }

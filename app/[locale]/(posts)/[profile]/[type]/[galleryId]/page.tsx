@@ -4,10 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 export default function IDmedia({ params }: { params: { profile: string, type: string, galleryId: string } }) {
 
-
-    console.log("hola como estan", params.profile)
-
-
     return (
 
         <div className="rounded-lg bg-white dark:bg-red-400">

@@ -32,6 +32,8 @@ export default async function Home({ params }: { params: { profile: string, type
 
     const response = await fetchPosts(params.profile)
 
+    console.log("default", process.env.DATA_API_KEY)
+
     return (
 
         <>

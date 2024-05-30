@@ -9,8 +9,9 @@ export async function GET(
 ) {
   const API_TOKEN = headers().get("x-access-token");
 
-  if (API_TOKEN !== process.env.DATA_API_KEY)
-    return NextResponse.json(
+  console.log("api", process.env.DATA_API_KEY)
+
+  if (API_TOKEN !== process.env.DATA_API_KEY) return NextResponse.json(
       { error: "You may not have the permissions to perform this action." },
       { status: 401 }
     );
@@ -43,3 +44,14 @@ export async function GET(
 
   return NextResponse.json({ status: "success", data }, { status: 200 });
 }
+
+/* // obtener parametros sin ruta /api/post?query=1
+
+const searchParams = request.nextUrl.searchParams;
+const query = searchParams.get("query");
+
+const { searchParams } = new URL(request.url)
+const id = searchParams.get('id')
+
+// obtener todos los parametros con el mismo nombre
+const id = searchParams.getAll("id"); */
