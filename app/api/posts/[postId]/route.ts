@@ -9,7 +9,8 @@ export async function GET(
 ) {
   const API_TOKEN = headers().get("x-access-token");
 
-  if (API_TOKEN !== "123456") return NextResponse.json(
+  if (API_TOKEN !== '123456')
+    return NextResponse.json(
       { error: "You may not have the permissions to perform this action." },
       { status: 401 }
     );
