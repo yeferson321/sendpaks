@@ -7,9 +7,7 @@ import { ApiResponse } from '@/app/lib/definitions/definitions';
 import Navigation from '@/app/ui/navigation/Navigation';
 import Gallery from '@/app/ui/gallery/Gallery';
 
-export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
-    return { title: `OnlyPaks ${params.profile}` };
-};
+
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
     const res = await fetch(`${process.env.NEXT_BASE_URL}/api/posts/${postId}`,
@@ -39,7 +37,7 @@ export default async function Home({ params }: { params: { profile: string, type
 
                 <div className="flex lg:gap-x-6  ">
 
-                    {/* <div className="flex-1 lg:min-w-[450px] ">
+                    <div className="flex-1 lg:min-w-[450px] ">
 
                         <h2 className="text-resd-300">{params.type}</h2>
 
@@ -58,7 +56,7 @@ export default async function Home({ params }: { params: { profile: string, type
                     </div>
 
                     <Bar pricing={response.data.pricing} className="hidden lg:block flex-1 lg:max-w-[400px]" />
- */}
+
                 </div>
 
                 :
