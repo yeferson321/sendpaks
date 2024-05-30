@@ -3,15 +3,12 @@
 @tailwind utilities;
 
 * {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)!important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
 
 * {
-  touch-action: manipulation!important;
+  touch-action: manipulation !important;
 }
-
-
-
 
 /* Ancho del scrollbar */
 ::-webkit-scrollbar {
@@ -50,4 +47,37 @@ button:focus {
   outline: none;
 }
 
+/* Stats */
 
+.hidden-scrollbar {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.gradient-mask {
+  --size-gradient: 12px;
+  mask-image: linear-gradient(
+    to right,
+    transparent 3%,
+    #000 var(--size-gradient),
+    #000 calc(100% - var(--size-gradient)),
+    transparent 100%
+  );
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
+  grid-gap: 20px;
+}
+
+.wrapper__holder {
+  min-width: 450px;
+  flex: 1;
+  position: relative;
+}
