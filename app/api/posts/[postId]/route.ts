@@ -3,17 +3,10 @@ export const runtime = "edge";
 import { type NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { postId: string } }
-) {
+export async function GET( request: NextRequest, { params }: { params: { postId: string } } ) {
   const API_TOKEN = headers().get("x-access-token");
 
-  const variable = process.env.API_BASE_URL
-
-  console.log("api response", variable)
-
-  if (API_TOKEN !== '123456')
+  if (API_TOKEN !== process.env.DATA_API_KEY)
     return NextResponse.json(
       { error: "You may not have the permissions to perform this action." },
       { status: 401 }

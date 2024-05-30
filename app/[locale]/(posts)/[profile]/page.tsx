@@ -1,24 +1,23 @@
 import { Metadata } from 'next';
-
+import Footer from '@/app/ui/footer/Footer';
+import Bar from '@/app/ui/bar/Bar';
+import PaymentLogos from '@/app/ui/paymentLogos/PaymentLogos';
+import Stats from '@/app/ui/stats/Stats';
 import { ApiResponse } from '@/app/lib/definitions/definitions';
-
+import Navigation from '@/app/ui/navigation/Navigation';
+import Gallery from '@/app/ui/gallery/Gallery';
 
 export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
     return { title: `OnlyPaks ${params.profile}` };
 };
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
-
-    const variable = process.env.API_BASE_URL
-
-    console.log("variable", variable)
-
-    const res = await fetch(`https://sendpaks.vercel.app/api/posts/${postId}`,
+    const res = await fetch(`${process.env.API_BASE_URL}/api/posts/${postId}`,
         {
             cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
-                'x-access-token': `123456`
+                'x-access-token': `${process.env.DATA_API_KEY}`
             },
         });
 
@@ -31,7 +30,6 @@ export default async function Home({ params }: { params: { profile: string, type
 
     const response = await fetchPosts(params.profile)
 
-    console.log("response", response)
     return (
 
         <>
