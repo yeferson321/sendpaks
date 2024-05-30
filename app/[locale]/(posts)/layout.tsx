@@ -8,10 +8,10 @@ export default function RootLayout({ children}: { children: React.ReactNode }) {
 
             <div className="h-full grid max-xs:grid-rows-[auto,_1fr] xs:grid-cols-[auto,_1fr] max-xs:gap-y-4 xs:gap-x-6">
 
-                <Navbar className="xs:hidden" />
+              {/*   <Navbar className="xs:hidden" />
 
                 <Sidebar className="hidden xs:block" />
-
+ */}
                 {children}
 
             </div>

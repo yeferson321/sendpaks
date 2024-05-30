@@ -1,11 +1,7 @@
 import { Metadata } from 'next';
-import Footer from '@/app/ui/footer/Footer';
-import Bar from '@/app/ui/bar/Bar';
-import PaymentLogos from '@/app/ui/paymentLogos/PaymentLogos';
-import Stats from '@/app/ui/stats/Stats';
+
 import { ApiResponse } from '@/app/lib/definitions/definitions';
-import Navigation from '@/app/ui/navigation/Navigation';
-import Gallery from '@/app/ui/gallery/Gallery';
+
 
 export async function generateMetadata({ params }: { params: { profile: string } }): Promise<Metadata> {
     return { title: `OnlyPaks ${params.profile}` };
@@ -13,13 +9,12 @@ export async function generateMetadata({ params }: { params: { profile: string }
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
 
-    const res = await fetch(`http://localhost:3000/api/posts/${postId}`,
-
+    const res = await fetch(`https://sendpaks-git-testing-yeferson321s-projects.vercel.app/api/posts/${postId}`,
         {
             cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
-                'x-access-token': `${process.env.DATA_API_KEY}`
+                'x-access-token': `123456`
             },
         });
 
@@ -32,8 +27,7 @@ export default async function Home({ params }: { params: { profile: string, type
 
     const response = await fetchPosts(params.profile)
 
-    console.log("page", process.env.DATA_API_KEY)
-
+    console.log("response", response)
     return (
 
         <>
@@ -43,7 +37,7 @@ export default async function Home({ params }: { params: { profile: string, type
 
                 <div className="flex lg:gap-x-6  ">
 
-                    <div className="flex-1 lg:min-w-[450px] ">
+                    {/* <div className="flex-1 lg:min-w-[450px] ">
 
                         <h2 className="text-resd-300">{params.type}</h2>
 
@@ -62,7 +56,7 @@ export default async function Home({ params }: { params: { profile: string, type
                     </div>
 
                     <Bar pricing={response.data.pricing} className="hidden lg:block flex-1 lg:max-w-[400px]" />
-
+ */}
                 </div>
 
                 :
