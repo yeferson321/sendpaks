@@ -12,12 +12,12 @@ export async function generateMetadata({ params }: { params: { profile: string }
 };
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
-    const res = await fetch(`${process.env.API_BASE_URL}/api/posts/${postId}`,
+    const res = await fetch(`${process.env.NEXT_BASE_URL}/api/posts/${postId}`,
         {
             cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
-                'x-access-token': `${process.env.ACCESS_TOKEN}`
+                'x-access-token': `${process.env.NEXT_ACCESS_TOKEN}`
             },
         });
 
