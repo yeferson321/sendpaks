@@ -13,8 +13,7 @@ export async function generateMetadata({ params }: { params: { profile: string }
 
 async function fetchPosts(postId: string): Promise<ApiResponse> {
 
-    const res = await fetch(`http://localhost:3000/api/posts/${postId}`,
-
+    const res = await fetch(`${process.env.API_BASE_URL}/api/posts/${postId}`,
         {
             cache: 'no-store',
             headers: {
@@ -31,8 +30,6 @@ async function fetchPosts(postId: string): Promise<ApiResponse> {
 export default async function Home({ params }: { params: { profile: string, type: string } }) {
 
     const response = await fetchPosts(params.profile)
-
-    console.log("page", process.env.DATA_API_KEY, response)
 
     return (
 
