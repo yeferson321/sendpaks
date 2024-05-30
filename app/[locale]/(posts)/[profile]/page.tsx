@@ -17,7 +17,7 @@ async function fetchPosts(postId: string): Promise<ApiResponse> {
             cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
-                'x-access-token': `${process.env.DATA_API_KEY}`
+                'x-access-token': `${process.env.ACCESS_TOKEN}`
             },
         });
 
