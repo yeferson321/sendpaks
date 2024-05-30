@@ -1,8 +1,7 @@
-export default function Layout({ children, gallery, modal }: { children: React.ReactNode, gallery: React.ReactNode, modal: React.ReactNode }) {
+export default function Layout({ children,  }: { children: React.ReactNode, }) {
     return (
         <>
-          {/*   {gallery}
-            {modal} */}
+   
             {children}
         </>
     )
